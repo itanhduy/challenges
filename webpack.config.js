@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 const config = {
   entry: './src/index.js',
@@ -7,9 +7,7 @@ const config = {
     path: path.resolve(__dirname, 'build'),
     publicPath: 'build',
   },
-
   devtool: 'inline-source-map',
-
   devServer: {
     inline: true,
     host: '0.0.0.0',
@@ -18,7 +16,7 @@ const config = {
     disableHostCheck: true,
     contentBase: 'public',
   },
-
+  mode: 'development',
   module: {
     rules: [
       {
@@ -26,10 +24,13 @@ const config = {
         exclude: [/node_modules/],
         use: {
           loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react'],
+          },
         },
       },
     ],
   },
-};
+}
 
-module.exports = config;
+module.exports = config
