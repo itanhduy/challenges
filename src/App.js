@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import styled from 'styled-components'
 import { sumBy } from 'lodash'
+import { ListCharities, Screen } from './component'
 import { CharityAction } from './redux/actions'
 import { API } from './service'
-
-const Card = styled.div`
-  margin: 10px;
-  border: 1px solid #ccc;
-`
 
 class App extends Component {
   constructor(props) {
@@ -30,7 +25,11 @@ class App extends Component {
   }
 
   render() {
-    return null
+    return (
+      <Screen>
+        <ListCharities />
+      </Screen>
+    )
     //   const self = this
     //   const cards = this.state.charities.map(function(item, i) {
     //     const payments = [10, 20, 50, 100, 500].map((amount, j) => (
