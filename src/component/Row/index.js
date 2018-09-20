@@ -1,10 +1,19 @@
 import React, { PureComponent } from 'react'
+import styledComponents, { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
-import styledComponents from 'styled-components'
 
 const RowComponent = styledComponents.div`
-  display: flex;
-  flex-direction: row;
+  ${props => {
+    const { styleName, theme } = props
+    const { createStyle } = theme
+    return {
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      flex: 1,
+      ...createStyle(styleName, 'row'),
+    }
+  }}
 `
 
 class Row extends PureComponent {
@@ -15,7 +24,12 @@ class Row extends PureComponent {
 }
 
 Row.propTypes = {
+  styleName: PropTypes.string,
+  style: PropTypes.object,
+  theme: PropTypes.object,
+  createStyle: PropTypes.func,
   children: PropTypes.any,
 }
 
-export default Row
+export default withTheme(Row)
+export { RowComponent }

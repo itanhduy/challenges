@@ -27,10 +27,12 @@ class App extends Component {
   render() {
     return (
       <Screen styleName="h-center xl-gutter">
-        <Row>
+        <Row styleName="xl-gutter-top">
           <HeaderTitle styleName="title bold">Omise Tamboon React</HeaderTitle>
         </Row>
-        <ListCharities />
+        <Row>
+          <ListCharities />
+        </Row>
       </Screen>
     )
     //   const self = this

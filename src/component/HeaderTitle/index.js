@@ -13,7 +13,7 @@ class HeaderTitle extends PureComponent {
      * Start creating style for HeaderTitle
      * Based on `styleName` and `style`
      */
-    const { theme, styleName, style } = this.props
+    const { theme, styleName } = this.props
     const { createStyle } = theme
     HeaderTitleComponent = HeaderTitleComponent`${createStyle(styleName, 'typography')}`
   }

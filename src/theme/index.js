@@ -17,12 +17,16 @@ const MergeTheme = {
    * Only for typography components
    */
   typography: Typography,
-  createStyle: (styleName, elementType) => {
-    return CreateStyle(styleName, {
-      ...MergeTheme.gutters,
-      ...MergeTheme.flexBox,
-      ...MergeTheme[elementType],
-    })
+  createStyle: (styleName, elementType, defaultStyle) => {
+    return CreateStyle(
+      styleName,
+      {
+        ...MergeTheme.gutters,
+        ...MergeTheme.flexBox,
+        ...MergeTheme[elementType],
+      },
+      defaultStyle,
+    )
   },
 }
 

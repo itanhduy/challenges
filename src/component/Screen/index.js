@@ -1,28 +1,24 @@
 import React, { PureComponent } from 'react'
-import styledComponents, { withTheme } from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
-let ScreenComponent = styledComponents.div
+const ScreenComponent = styled.div`
+  ${props => {
+    const { styleName, theme } = props
+    const { createStyle } = theme
+    return {
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      flex: 1,
+      ...createStyle(styleName, 'screen'),
+    }
+  }};
+`
 
 class Screen extends PureComponent {
-  componentWillMount() {
-    /**
-     * Start creating style for ScreenComponent
-     * Based on `styleName` and `style`
-     */
-    const { theme, styleName, style } = this.props
-    const { createStyle } = theme
-    ScreenComponent = ScreenComponent`      
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      flex: 1;
-      ${createStyle(styleName, 'flexbox')}
-    `
-  }
-
   render() {
-    const { children, theme } = this.props
+    const { children } = this.props
     return <ScreenComponent {...this.props}>{children}</ScreenComponent>
   }
 }
