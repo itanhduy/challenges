@@ -12,8 +12,8 @@ const MergeTheme = {
    * Only for typography components
    */
   typography: Typography,
-  createStyle: (styleName, elementType, customStyle = {}) => {
-    return CreateStyle(styleName, customStyle, {
+  createStyle: (styleName, elementType) => {
+    return CreateStyle(styleName, {
       ...MergeTheme.flexBox,
       ...MergeTheme[elementType],
     })

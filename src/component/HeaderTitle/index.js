@@ -2,17 +2,25 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styledComponents, { withTheme } from 'styled-components'
 
-const HeaderTitleComponent = styledComponents.div``
+/**
+ * Create instance for HeaderTitle
+ */
+let HeaderTitleComponent = styledComponents.div
 
 class HeaderTitle extends PureComponent {
-  render() {
-    const { children, theme, styleName, style } = this.props
+  componentWillMount() {
+    /**
+     * Start creating style for HeaderTitle
+     * Based on `styleName` and `style`
+     */
+    const { theme, styleName, style } = this.props
     const { createStyle } = theme
-    return (
-      <HeaderTitleComponent {...this.props} style={createStyle(styleName, 'typography', style)}>
-        {children}
-      </HeaderTitleComponent>
-    )
+    HeaderTitleComponent = HeaderTitleComponent`${createStyle(styleName, 'typography')}`
+  }
+
+  render() {
+    const { children } = this.props
+    return <HeaderTitleComponent {...this.props}>{children}</HeaderTitleComponent>
   }
 }
 

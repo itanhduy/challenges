@@ -17,17 +17,17 @@ const Typography = {
   caption: {
     fontSize: '0.75rem',
   },
-  body: {
+  text: {
     fontSize: '0.875rem',
   },
-  subHeading: {
+  ubtitle: {
     fontSize: '1rem',
   },
   title: {
-    fontSize: '1.3125rem',
-  },
-  headLine: {
     fontSize: '1.5rem',
+  },
+  heading: {
+    fontSize: '2.8125rem',
   },
   bold: {
     fontWeight: 700,

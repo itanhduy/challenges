@@ -3,7 +3,7 @@
  * Andy Ng
  * 2018-09-19 15:59:36
  */
-import { forOwn, split, merge } from 'lodash'
+import { split } from 'lodash'
 
 /**
  *
@@ -11,7 +11,7 @@ import { forOwn, split, merge } from 'lodash'
  * @param {*} theme The theme was defined before check forder /theme
  * @return {Object} The style properties
  */
-const createStyle = (styleName, customStyle, theme) => {
+const createStyle = (styleName, theme) => {
   if (styleName) {
     const styleObjects = {}
     split(styleName, ' ').forEach(name => {
@@ -23,7 +23,7 @@ const createStyle = (styleName, customStyle, theme) => {
       const getKey = Object.keys(getStyle)
       styleObjects[getKey] = theme[name][getKey]
     })
-    return merge(styleObjects, customStyle)
+    return styleObjects
   }
   return
 }
