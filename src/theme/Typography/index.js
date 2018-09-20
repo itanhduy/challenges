@@ -20,11 +20,11 @@ const Typography = {
   text: {
     fontSize: '0.875rem',
   },
-  ubtitle: {
+  subtitle: {
     fontSize: '1rem',
   },
   title: {
-    fontSize: '1.5rem',
+    fontSize: '2rem',
   },
   heading: {
     fontSize: '2.8125rem',
