@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { sumBy } from 'lodash'
-import { ListCharities, Screen, HeaderTitle, Row } from './component'
+import { ListCharities, Screen, Text, Row } from './component'
 import { CharityAction } from './redux/actions'
 import { API } from './service'
 
@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <Screen styleName="h-center xl-gutter">
         <Row styleName="xl-gutter-top">
-          <HeaderTitle styleName="title bold">Omise Tamboon React</HeaderTitle>
+          <Text styleName="title bold">Omise Tamboon React</Text>
         </Row>
         <Row styleName="xl-gutter-top">
           <ListCharities data={charities} />

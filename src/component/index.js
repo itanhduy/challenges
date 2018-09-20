@@ -1,7 +1,7 @@
 import Card from './Card'
 import ListCharities from './ListCharities'
 import Screen from './Screen'
-import HeaderTitle from './HeaderTitle'
+import Text from './Text'
 import Row from './Row'
 
-export { Card, ListCharities, Screen, HeaderTitle, Row }
+export { Card, ListCharities, Screen, Text, Row }

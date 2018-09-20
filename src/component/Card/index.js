@@ -2,12 +2,13 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import Image from '../Image'
+import Text from '../Text'
 
 const CardWrapper = styled.div`
   ${props => {
     const { columns } = props
     return {
-      maxWidth: `${100 / columns}%`,
+      maxWidth: `${window.outerWidth / columns}px`,
     }
   }};
 `
@@ -23,11 +24,12 @@ const CardComponent = styled.div`
 
 class Card extends PureComponent {
   render() {
-    const { data } = this.props
+    const { data, columns } = this.props
     return (
       <CardWrapper {...this.props}>
         <CardComponent {...this.props}>
-          <Image url={data.image} />
+          <Image url={data.image} height={200} width={window.outerWidth / columns} />
+          <Text>{data.name}</Text>
         </CardComponent>
       </CardWrapper>
     )
