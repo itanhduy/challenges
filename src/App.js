@@ -26,7 +26,7 @@ class App extends Component {
 
   render() {
     return (
-      <Screen styleName="h-center">
+      <Screen styleName="h-center xl-gutter">
         <Row>
           <HeaderTitle styleName="title bold">Omise Tamboon React</HeaderTitle>
         </Row>
