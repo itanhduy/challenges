@@ -32,6 +32,12 @@ const Typography = {
   bold: {
     fontWeight: 700,
   },
+  medium: {
+    fontWeight: 500,
+  },
+  normal: {
+    fontWeight: 300,
+  },
 }
 
 export default Typography
