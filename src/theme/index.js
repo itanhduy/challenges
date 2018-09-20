@@ -1,4 +1,24 @@
 import FlexBox from './FlexBox'
-import WithTheme from './WithTheme'
+import Typography from './Typography'
+import CreateStyle from './CreateStyle'
 
-export { FlexBox, WithTheme }
+const MergeTheme = {
+  /**
+   * Flexbox will be default for all emements
+   * Because all of theme support flex box properties
+   */
+  flexBox: FlexBox,
+  /**
+   * Only for typography components
+   */
+  typography: Typography,
+  createStyle: (styleName, elementType, customStyle = {}) => {
+    return CreateStyle(styleName, customStyle, {
+      ...MergeTheme.flexBox,
+      ...MergeTheme[elementType],
+    })
+  },
+}
+
+export default MergeTheme
+export { FlexBox, Typography, Merged }

@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
-import styledComponents from 'styled-components'
-import { WithTheme } from '../../theme'
+import styledComponents, { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
 const ScreenComponent = styledComponents.div`
@@ -12,14 +11,23 @@ const ScreenComponent = styledComponents.div`
 
 class Screen extends PureComponent {
   render() {
-    const { children } = this.props
-    return <ScreenComponent {...this.props}>{children}</ScreenComponent>
+    const { children, styleName, theme, style } = this.props
+    const { createStyle } = theme
+    return (
+      <ScreenComponent {...this.props} style={createStyle(styleName, 'flexbox', style)}>
+        {children}
+      </ScreenComponent>
+    )
   }
 }
 
 Screen.propTypes = {
+  styleName: PropTypes.string,
+  style: PropTypes.object,
+  theme: PropTypes.object,
+  createStyle: PropTypes.func,
   children: PropTypes.any,
 }
 
-export default WithTheme(Screen)
+export default withTheme(Screen)
 export { ScreenComponent }
