@@ -25,13 +25,14 @@ class App extends Component {
   }
 
   render() {
+    const { charities } = this.state
     return (
       <Screen styleName="h-center xl-gutter">
         <Row styleName="xl-gutter-top">
           <HeaderTitle styleName="title bold">Omise Tamboon React</HeaderTitle>
         </Row>
         <Row styleName="xl-gutter-top">
-          <ListCharities />
+          <ListCharities data={charities} />
         </Row>
       </Screen>
     )

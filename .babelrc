@@ -5,6 +5,7 @@
   ],
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
-    "styled-components"
+    "styled-components",
+    "transform-class-properties"
   ]
 }
