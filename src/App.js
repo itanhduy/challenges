@@ -30,7 +30,7 @@ class App extends Component {
         <Row styleName="xl-gutter-top">
           <HeaderTitle styleName="title bold">Omise Tamboon React</HeaderTitle>
         </Row>
-        <Row>
+        <Row styleName="xl-gutter-top">
           <ListCharities />
         </Row>
       </Screen>

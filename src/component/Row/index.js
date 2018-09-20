@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
-import styledComponents, { withTheme } from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
-const RowComponent = styledComponents.div`
+const RowComponent = styled.div`
   ${props => {
     const { styleName, theme } = props
     const { createStyle } = theme
@@ -13,13 +13,13 @@ const RowComponent = styledComponents.div`
       flex: 1,
       ...createStyle(styleName, 'row'),
     }
-  }}
+  }};
 `
 
 class Row extends PureComponent {
   render() {
     const { children } = this.props
-    return <RowComponent>{children}</RowComponent>
+    return <RowComponent {...this.props}>{children}</RowComponent>
   }
 }
 
