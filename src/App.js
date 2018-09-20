@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <Screen styleName="h-center">
         <Row>
-          <HeaderTitle>Omise Tamboon React</HeaderTitle>
+          <HeaderTitle styleName="headLine">Omise Tamboon React</HeaderTitle>
         </Row>
         <ListCharities />
       </Screen>

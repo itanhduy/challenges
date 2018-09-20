@@ -16,6 +16,10 @@ const createStyle = (styleName, customStyle, theme) => {
     const styleObjects = {}
     split(styleName, ' ').forEach(name => {
       const getStyle = theme[name]
+      if (!getStyle) {
+        console.warn(`Invalid style for name: ${name}. Please check again the name, make sure you use correct one`)
+        return
+      }
       const getKey = Object.keys(getStyle)
       styleObjects[getKey] = theme[name][getKey]
     })
