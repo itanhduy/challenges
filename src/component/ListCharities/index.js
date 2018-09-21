@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { partition } from 'lodash'
 import styled, { withTheme } from 'styled-components'
+import Row from '../Row'
 import Card from '../Card'
 
 class ListCharities extends PureComponent {
@@ -44,21 +45,29 @@ class ListCharities extends PureComponent {
   }
 
   /**
-   * Return list card component with information of charity inside
-   * @return {Array<Card>} List card component
+   * Renrderi items inside row
+   * @return {Array<Card>} Array of card components
    */
-  renderView = () => {
-    const { data } = this.props
-    const listCharities = data.map((item, index) => {
+  renderItems = items => {
+    return items.map((item, index) => {
       return <Card key={index} data={item} />
+    })
+  }
+
+  /**
+   * Render row for each columns
+   * @return {Row} The row that wrap card components
+   */
+  renderRow = () => {
+    const { chunk } = this.state
+    const listCharities = chunk.map((item, index) => {
+      return <Row key={index}>{this.renderItems(item)}</Row>
     })
     return listCharities
   }
 
   render() {
-    const { chunk } = this.state
-    console.info(chunk)
-    return this.renderView()
+    return this.renderRow()
   }
 }
 
