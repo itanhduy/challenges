@@ -8,8 +8,7 @@ const RowComponent = styled.div`
     const { createStyle } = theme
     return {
       display: 'flex',
-      justifyContent: 'center',
-      flexDirection: 'column',
+      flexDirection: 'row',
       flex: 1,
       ...createStyle(styleName, 'row'),
     }

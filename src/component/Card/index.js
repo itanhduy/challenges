@@ -8,7 +8,7 @@ const CardWrapper = styled.div`
   ${props => {
     const { columns } = props
     return {
-      maxWidth: `${window.outerWidth / columns}px`,
+      maxWidth: `${100 / columns}%`,
     }
   }};
 `
@@ -28,7 +28,7 @@ class Card extends PureComponent {
     return (
       <CardWrapper {...this.props}>
         <CardComponent {...this.props}>
-          <Image url={data.image} height={200} width={window.outerWidth / columns} />
+          <Image url={data.image} height={200} />
           <Text>{data.name}</Text>
         </CardComponent>
       </CardWrapper>

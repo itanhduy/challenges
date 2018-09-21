@@ -3,12 +3,12 @@ import styled from 'styled-components'
 
 const ImageComponent = styled.div`
   ${props => {
-    const { url, height, width } = props
+    const { url, height } = props
     return {
       backgroundImage: `url(images/${url})`,
       backgroundSize: 'cover',
       height: `${height}px`,
-      width: `${width}px`,
+      width: '100%',
     }
   }};
 `
