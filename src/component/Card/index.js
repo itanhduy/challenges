@@ -8,7 +8,7 @@ const CardWrapper = styled.div`
   ${props => {
     const { columns } = props
     return {
-      maxWidth: `${100 / columns}%`,
+      width: `${100 / columns}%`,
     }
   }};
 `
