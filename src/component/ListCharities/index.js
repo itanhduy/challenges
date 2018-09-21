@@ -61,7 +61,11 @@ class ListCharities extends PureComponent {
   renderRow = () => {
     const { chunk } = this.state
     const listCharities = chunk.map((item, index) => {
-      return <Row key={index}>{this.renderItems(item)}</Row>
+      return (
+        <Row key={index} styleName="fullWidth">
+          {this.renderItems(item)}
+        </Row>
+      )
     })
     return listCharities
   }

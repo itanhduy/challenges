@@ -2,8 +2,13 @@ import FlexBox from './FlexBox'
 import Typography from './Typography'
 import CreateStyle from './CreateStyle'
 import Gutters from './Gutters'
+import General from './General'
 
 const MergeTheme = {
+  /**
+   * A general styling
+   */
+  general: General,
   /**
    * A gutter is an empty space between a component’s boundaries and the component’s content.
    */
@@ -23,6 +28,7 @@ const MergeTheme = {
       {
         ...MergeTheme.gutters,
         ...MergeTheme.flexBox,
+        ...MergeTheme.general,
         ...MergeTheme[elementType],
       },
       defaultStyle,
