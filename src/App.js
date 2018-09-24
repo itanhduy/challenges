@@ -31,7 +31,9 @@ class App extends Component {
         <Row styleName="xl-gutter-top">
           <Text styleName="title bold">Omise Tamboon React</Text>
         </Row>
-        <ListCharities data={charities} columns={2} />
+        <Row styleName="vertical fullWidth xl-gutter">
+          <ListCharities data={charities} columns={2} />
+        </Row>
       </Screen>
     )
     //   const self = this

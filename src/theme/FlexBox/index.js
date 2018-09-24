@@ -6,7 +6,7 @@
 
 const FlexBox = {
   vertical: {
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
   'v-center': {
     justifyContent: 'center',

@@ -9,6 +9,7 @@ const CardWrapper = styled.div`
     const { columns } = props
     return {
       width: `${100 / columns}%`,
+      padding: '15px',
     }
   }};
 `
