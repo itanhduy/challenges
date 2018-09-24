@@ -70,6 +70,14 @@ class Donate extends PureComponent {
   }
 
   /**
+   * Go back home
+   */
+  goBackHome = () => {
+    const { history } = this.props
+    history.push('/')
+  }
+
+  /**
    * Render bottom component for this charity
    * @return {PureComponent} The bottom component that included payment options and navigation
    */
@@ -97,7 +105,7 @@ class Donate extends PureComponent {
           <Button styleName="width-45" textProps={{ styleName: 'textPrimary medium' }}>
             Donate
           </Button>
-          <Button styleName="width-45" textProps={{ styleName: 'textPrimary medium' }}>
+          <Button styleName="width-45" textProps={{ styleName: 'textPrimary medium' }} onClick={this.goBackHome}>
             Go back home
           </Button>
         </Row>
