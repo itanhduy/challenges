@@ -1,9 +1,8 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import Image from '../Image'
 import Text from '../Text'
-import Button from '../Button'
 
 /**
  * This component for wrapper
@@ -66,15 +65,46 @@ const CardContent = styled.div`
 `
 
 class Card extends PureComponent {
+  /**
+   * Render right component
+   * The right component can be a class, object or a function
+   * @return {PureComponent} The right component was executed
+   */
+  renderRightComponent = () => {
+    const { rightComponent } = this.props
+    switch (typeof rightComponent) {
+      /**
+       * If rightComponent is a function
+       * So we just need to execute as function with ()
+       */
+      case typeof Function:
+        return rightComponent()
+      /**
+       * If rightComponent is a instance of PureComponent or Component
+       * We need to create new element
+       */
+      case typeof PureComponent:
+      case typeof Component:
+        return React.createElement(rightComponent)
+      /**
+       * Out of out our cases them return rightComponent directly
+       */
+      default:
+        return rightComponent
+    }
+  }
+
   render() {
     const { data } = this.props
+    const { name, image } = data
+    const createRightComponent = this.renderRightComponent()
     return (
       <CardWrapper {...this.props} styleName="flexible v-center bounceIn">
         <CardComponent {...this.props} styleName="borderRadius">
-          <Image url={data.image} height={200} />
+          <Image url={image} height={200} />
           <CardContent styleName="flexible h-center space-between">
-            <Text styleName="medium">{data.name}</Text>
-            <Button textProps={{ styleName: 'textPrimary medium' }}>Donate</Button>
+            <Text styleName="medium">{name}</Text>
+            {createRightComponent}
           </CardContent>
         </CardComponent>
       </CardWrapper>
@@ -83,8 +113,24 @@ class Card extends PureComponent {
 }
 
 Card.propTypes = {
+  /**
+   * The right component for card
+   */
+  rightComponent: PropTypes.any,
+  /**
+   * How many columns you want to show?
+   * Use it for creating layout
+   */
   columns: PropTypes.number.isRequired,
+  /**
+   * The padding for card.
+   * Default is 15px
+   */
   cardPadding: PropTypes.number,
+  /**
+   * The data for showing inside card
+   * Included: Image, text and the right component
+   */
   data: PropTypes.object,
 }
 

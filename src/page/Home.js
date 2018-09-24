@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { sumBy } from 'lodash'
-import { ListCharities, Screen, Text, Row } from '../component'
+import { ListCharities, Screen, Text, Row, Button } from '../component'
 import { CharityAction } from '../redux/actions'
 import { API } from '../service'
 
 class App extends Component {
   constructor(props) {
-    super()
+    super(props)
     this.state = {
       charities: [],
       selectedAmount: 10,
@@ -24,6 +24,10 @@ class App extends Component {
     })
   }
 
+  rightComponent = () => {
+    return <Button textProps={{ styleName: 'textPrimary medium' }}>Donate</Button>
+  }
+
   render() {
     const { charities } = this.state
     return (
@@ -32,7 +36,7 @@ class App extends Component {
           <Text styleName="title bold fadeIn">Omise Tamboon React</Text>
         </Row>
         <Row styleName="vertical width-50 xl-gutter">
-          <ListCharities data={charities} columns={2} />
+          <ListCharities data={charities} columns={2} rightComponent={this.rightComponent} />
         </Row>
       </Screen>
     )

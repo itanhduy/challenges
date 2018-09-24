@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react'
-import { partition } from 'lodash'
-import styled, { withTheme } from 'styled-components'
 import Row from '../Row'
 import Card from '../Card'
 
@@ -15,6 +13,8 @@ class ListCharities extends PureComponent {
   /**
    * Create array items
    * Depends on columns
+   * @return {Array<Array<Object>>} The array of array objects. For example with columns is 2.
+   * We will have a list of array with 2 objects inside
    */
   createArrayItems = () => {
     const { data, columns } = this.props
@@ -46,11 +46,13 @@ class ListCharities extends PureComponent {
 
   /**
    * Renrderi items inside row
+   * @param {Object} items The list items of charity information
    * @return {Array<Card>} Array of card components
    */
   renderItems = items => {
+    const { rightComponent } = this.props
     return items.map((item, index) => {
-      return <Card key={index} data={item} />
+      return <Card key={index} data={item} rightComponent={rightComponent} />
     })
   }
 
