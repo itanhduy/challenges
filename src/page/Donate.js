@@ -63,11 +63,7 @@ class Donate extends PureComponent {
    */
   renderOptionSelected = () => {
     const { paymentOptionSelected } = this.state
-    return (
-      paymentOptionSelected && (
-        <Text styleName="md-gutter-top medium">You are gonna donate ${paymentOptionSelected.label}</Text>
-      )
-    )
+    return paymentOptionSelected && <Text styleName="medium">You are gonna donate ${paymentOptionSelected.label}</Text>
   }
 
   /**
@@ -93,7 +89,7 @@ class Donate extends PureComponent {
         <Row styleName="md-gutter-top">
           <Divider />
         </Row>
-        <Row>{this.renderOptionSelected()}</Row>
+        <Row styleName="md-gutter-top">{this.renderOptionSelected()}</Row>
       </Row>
     )
   }
