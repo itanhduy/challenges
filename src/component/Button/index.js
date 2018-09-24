@@ -10,6 +10,7 @@ const ButtonComponent = styled.div`
     return {
       border: `2px solid ${color.primary}`,
       padding: '5px',
+      cursor: 'pointer',
       ...createStyle(styleName, 'button'),
     }
   }};
