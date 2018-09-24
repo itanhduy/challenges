@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import Image from '../Image'
 import Text from '../Text'
+import Button from '../Button'
 
 const CardWrapper = styled.div`
   ${props => {
@@ -48,6 +49,7 @@ class Card extends PureComponent {
           <Image url={data.image} height={200} />
           <CardContent>
             <Text styleName="medium">{data.name}</Text>
+            <Button>Donate</Button>
           </CardContent>
         </CardComponent>
       </CardWrapper>

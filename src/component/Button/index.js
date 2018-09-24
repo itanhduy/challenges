@@ -7,17 +7,17 @@ const ButtonComponent = styled.div``
 
 class Button extends PureComponent {
   render() {
-    const { text, textProps } = this.props
+    const { children, textProps } = this.props
     return (
       <ButtonComponent>
-        <Text {...textProps}>{text}</Text>
+        <Text {...textProps}>{children}</Text>
       </ButtonComponent>
     )
   }
 }
 
 Button.propsType = {
-  text: PropTypes.string,
+  children: PropTypes.any,
   textProps: PropTypes.object,
 }
 
