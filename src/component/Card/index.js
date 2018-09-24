@@ -108,7 +108,7 @@ class Card extends PureComponent {
             <Text styleName="medium">{name}</Text>
             {createRightComponent}
           </CardContent>
-          <CardContent>{createBottomComponent}</CardContent>
+          {createBottomComponent && <CardContent>{createBottomComponent}</CardContent>}
         </CardComponent>
       </CardWrapper>
     )
