@@ -52,8 +52,7 @@ const CardComponent = styled.div`
  */
 const CardContent = styled.div`
   ${props => {
-    const { theme, styleName, cardContentProps } = props
-    console.info(cardContentProps)
+    const { theme, styleName, cardContentProps, cardContentBottomProps } = props
     const { createStyle } = theme
     return {
       /**
@@ -61,6 +60,7 @@ const CardContent = styled.div`
        */
       padding: '25px 15px',
       ...cardContentProps,
+      ...cardContentBottomProps,
       ...createStyle(styleName, 'card'),
     }
   }};
