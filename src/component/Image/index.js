@@ -5,7 +5,7 @@ const ImageComponent = styled.div`
   ${props => {
     const { url, height } = props
     return {
-      backgroundImage: `url(images/${url})`,
+      backgroundImage: `url(/images/${url})`,
       backgroundSize: 'cover',
       height: `${height}px`,
       width: '100%',

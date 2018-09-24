@@ -5,8 +5,16 @@ import Gutters from './Gutters'
 import General from './General'
 import Row from './Row'
 import Color from './Color'
+import Animation from './Animation'
 
 const MergeTheme = {
+  /**
+   * A list of animation for this application
+   */
+  animation: Animation,
+  /**
+   * A list of colors for this application
+   */
   color: Color,
   /**
    * Styling for Row
@@ -37,6 +45,7 @@ const MergeTheme = {
         ...MergeTheme.flexBox,
         ...MergeTheme.general,
         ...MergeTheme.color,
+        ...MergeTheme.animation,
         ...MergeTheme[elementType],
       },
       defaultStyle,

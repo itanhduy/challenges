@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <Screen styleName="h-center xl-gutter">
         <Row styleName="xl-gutter-top">
-          <Text styleName="title bold">Omise Tamboon React</Text>
+          <Text styleName="title bold fadeIn">Omise Tamboon React</Text>
         </Row>
         <Row styleName="vertical width-50 xl-gutter">
           <ListCharities data={charities} columns={2} />
