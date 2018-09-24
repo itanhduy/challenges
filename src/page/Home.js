@@ -27,9 +27,11 @@ class App extends Component {
   /**
    * When user click on Donate button, run this function
    * @param {Object} item The data of charity
+   * @return {Function} Redirect user to donation page
    */
   startDonating = (event, item) => {
-    console.info(event, item)
+    const { history } = this.props
+    history.push(`donate/${item.id}`)
   }
 
   /**

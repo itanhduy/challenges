@@ -68,36 +68,37 @@ class Card extends PureComponent {
   /**
    * Render right component
    * The right component can be a class, object or a function
+   * @param {any} instanceComponent The instance component that needs to render
    * @return {PureComponent} The right component was executed
    */
-  renderRightComponent = () => {
-    const { rightComponent, data } = this.props
-    switch (typeof rightComponent) {
+  renderExtendedComponent = instanceComponent => {
+    const { data } = this.props
+    switch (typeof instanceComponent) {
       /**
        * If rightComponent is a function
        * So we just need to execute as function with ()
        */
       case typeof Function:
-        return rightComponent(data)
+        return instanceComponent(data)
       /**
        * If rightComponent is a instance of PureComponent or Component
        * We need to create new element
        */
       case typeof PureComponent:
       case typeof Component:
-        return React.createElement(rightComponent)
+        return React.createElement(instanceComponent)
       /**
        * Out of out our cases them return rightComponent directly
        */
       default:
-        return rightComponent
+        return instanceComponent
     }
   }
 
   render() {
-    const { data } = this.props
+    const { data, rightComponent } = this.props
     const { name, image } = data
-    const createRightComponent = this.renderRightComponent()
+    const createRightComponent = this.renderExtendedComponent(rightComponent)
     return (
       <CardWrapper {...this.props} styleName="flexible v-center bounceIn">
         <CardComponent {...this.props} styleName="borderRadius">
