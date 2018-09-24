@@ -96,9 +96,10 @@ class Card extends PureComponent {
   }
 
   render() {
-    const { data, rightComponent } = this.props
+    const { data, rightComponent, bottomComponent } = this.props
     const { name, image } = data
     const createRightComponent = this.renderExtendedComponent(rightComponent)
+    const createBottomComponent = this.renderExtendedComponent(bottomComponent)
     return (
       <CardWrapper {...this.props} styleName="flexible v-center bounceIn">
         <CardComponent {...this.props} styleName="borderRadius">
@@ -107,6 +108,7 @@ class Card extends PureComponent {
             <Text styleName="medium">{name}</Text>
             {createRightComponent}
           </CardContent>
+          <CardContent>{createBottomComponent}</CardContent>
         </CardComponent>
       </CardWrapper>
     )
