@@ -22,6 +22,7 @@ const CardComponent = styled.div`
     const { createStyle } = theme
     return {
       width: '100%',
+      overflow: 'hidden',
       ...theme.general.boxShadow,
       ...createStyle(styleName, 'card'),
     }
