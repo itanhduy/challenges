@@ -18,9 +18,9 @@ const ButtonComponent = styled.div`
 
 class Button extends PureComponent {
   render() {
-    const { children, textProps } = this.props
+    const { children, textProps, styleName } = this.props
     return (
-      <ButtonComponent {...this.props} styleName="borderRadius">
+      <ButtonComponent {...this.props} styleName={`borderRadius v-center flexible ${styleName}`}>
         <Text {...textProps}>{children}</Text>
       </ButtonComponent>
     )
@@ -28,8 +28,13 @@ class Button extends PureComponent {
 }
 
 Button.propsType = {
+  styleName: PropTypes.string,
   children: PropTypes.any,
   textProps: PropTypes.object,
+}
+
+Button.defaultProps = {
+  styleName: String(),
 }
 
 export default withTheme(Button)

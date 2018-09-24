@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { Screen, Row, Text, Card, Divider, PaymentOptions } from '../component'
+import { Screen, Row, Text, Card, Divider, PaymentOptions, Button } from '../component'
 import { API, Transform } from '../service'
 
 class Donate extends PureComponent {
@@ -63,7 +63,10 @@ class Donate extends PureComponent {
    */
   renderOptionSelected = () => {
     const { paymentOptionSelected } = this.state
-    return paymentOptionSelected && <Text styleName="medium">You are gonna donate ${paymentOptionSelected.label}</Text>
+    const content = paymentOptionSelected
+      ? `You are gonna donate ${paymentOptionSelected.label}`
+      : `Please choose at least one option`
+    return <Text styleName="medium">{content}</Text>
   }
 
   /**
@@ -90,6 +93,10 @@ class Donate extends PureComponent {
           <Divider />
         </Row>
         <Row styleName="md-gutter-top">{this.renderOptionSelected()}</Row>
+        <Row styleName="md-gutter-top space-between">
+          <Button styleName="fullWidth">Donate</Button>
+          <Button styleName="fullWidth">Go back home</Button>
+        </Row>
       </Row>
     )
   }

@@ -14,7 +14,7 @@ import { split, merge } from 'lodash'
 const createStyle = (styleName, theme, defaultStyle) => {
   if (styleName) {
     const styleObjects = {}
-    split(styleName, ' ').forEach(name => {
+    split(styleName.trim(), ' ').forEach(name => {
       const getStyle = theme[name]
       /**
        * Check if style name is undefined or not
