@@ -41,7 +41,7 @@ class Card extends PureComponent {
         <CardComponent {...this.props}>
           <Image url={data.image} height={200} />
           <CardContent>
-            <Text>{data.name}</Text>
+            <Text styleName="medium">{data.name}</Text>
           </CardContent>
         </CardComponent>
       </CardWrapper>
