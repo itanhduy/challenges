@@ -11,6 +11,12 @@ const FlexBox = {
   vertical: {
     flexDirection: 'column',
   },
+  horizontal: {
+    flexDirection: 'row',
+  },
+  'space-between': {
+    justifyContent: 'space-between',
+  },
   'v-center': {
     justifyContent: 'center',
   },

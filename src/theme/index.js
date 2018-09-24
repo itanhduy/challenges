@@ -4,8 +4,10 @@ import CreateStyle from './CreateStyle'
 import Gutters from './Gutters'
 import General from './General'
 import Row from './Row'
+import Color from './Color'
 
 const MergeTheme = {
+  color: Color,
   /**
    * Styling for Row
    */
@@ -34,6 +36,7 @@ const MergeTheme = {
         ...MergeTheme.gutters,
         ...MergeTheme.flexBox,
         ...MergeTheme.general,
+        ...MergeTheme.color,
         ...MergeTheme[elementType],
       },
       defaultStyle,

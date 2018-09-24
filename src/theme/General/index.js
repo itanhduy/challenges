@@ -23,7 +23,7 @@ const General = {
     'box-shadow': `0px 0px 3px 0px rgba(34,34,34,0.25)`,
   },
   borderRadius: {
-    'border-radius': '5px',
+    'border-radius': '3px',
   },
   ...CreateWith(),
 }

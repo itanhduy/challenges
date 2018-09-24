@@ -47,9 +47,9 @@ class Card extends PureComponent {
       <CardWrapper {...this.props} styleName="flexible v-center">
         <CardComponent {...this.props} styleName="borderRadius">
           <Image url={data.image} height={200} />
-          <CardContent>
+          <CardContent styleName="flexible h-center space-between">
             <Text styleName="medium">{data.name}</Text>
-            <Button>Donate</Button>
+            <Button textProps={{ styleName: 'textPrimary medium' }}>Donate</Button>
           </CardContent>
         </CardComponent>
       </CardWrapper>
