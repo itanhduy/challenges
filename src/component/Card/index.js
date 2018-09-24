@@ -17,10 +17,10 @@ const CardWrapper = styled.div`
 
 const CardComponent = styled.div`
   ${props => {
-    const { theme, styleName } = props
+    const { theme, cardPadding, styleName } = props
     const { createStyle } = theme
     return {
-      width: 'calc(100% - 15px)',
+      width: `calc(100% - ${cardPadding}px)`,
       overflow: 'hidden',
       ...theme.general.boxShadow,
       ...createStyle(styleName, 'card'),
@@ -57,11 +57,13 @@ class Card extends PureComponent {
 
 Card.propTypes = {
   columns: PropTypes.number.isRequired,
+  cardPadding: PropTypes.number,
   data: PropTypes.object,
 }
 
 Card.defaultProps = {
   columns: 2,
+  cardPadding: 15,
 }
 
 export default withTheme(Card)
