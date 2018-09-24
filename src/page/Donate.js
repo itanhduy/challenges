@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
-import { Screen, Row, Text, Card, Divider } from '../component'
-import { API } from '../service'
+import { Screen, Row, Text, Card, Divider, PaymentOptions } from '../component'
+import { API, Transform } from '../service'
 
 class Donate extends PureComponent {
   constructor(props) {
@@ -51,15 +51,26 @@ class Donate extends PureComponent {
    * @return {PureComponent} The bottom component that included payment options and navigation
    */
   bottomComponent = () => {
+    const { paymentOptions } = this.state
     return (
-      <Row>
+      <Row styleName="vertical">
         <Divider />
+        <Row styleName="vertical md-gutter-top">
+          <Text styleName="medium">Payment options</Text>
+          <Row styleName="md-gutter-top vertical">
+            <PaymentOptions
+              data={Transform.createOptionData(paymentOptions, 'amount', ['amount', 'currency'])}
+              isGroup={true}
+              groupName="payment-options"
+            />
+          </Row>
+        </Row>
       </Row>
     )
   }
 
   renderView = () => {
-    const { charityInformation, paymentOptions } = this.state
+    const { charityInformation } = this.state
     return (
       <Screen styleName="h-center xl-gutter">
         <Row styleName="xl-gutter-top">
