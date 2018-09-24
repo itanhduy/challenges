@@ -31,7 +31,7 @@ class App extends Component {
         <Row styleName="xl-gutter-top">
           <Text styleName="title bold">Omise Tamboon React</Text>
         </Row>
-        <Row styleName="vertical fullWidth xl-gutter">
+        <Row styleName="vertical width-50 xl-gutter">
           <ListCharities data={charities} columns={2} />
         </Row>
       </Screen>

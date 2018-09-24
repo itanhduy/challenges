@@ -3,8 +3,13 @@ import Typography from './Typography'
 import CreateStyle from './CreateStyle'
 import Gutters from './Gutters'
 import General from './General'
+import Row from './Row'
 
 const MergeTheme = {
+  /**
+   * Styling for Row
+   */
+  row: Row,
   /**
    * A general styling
    */

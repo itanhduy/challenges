@@ -4,6 +4,14 @@
  * 2018-09-21 15:48:56
  */
 
+const CreateWith = () => {
+  const widthObject = {}
+  for (let i = 0; i <= 100; i++) {
+    widthObject[`width-${i}`] = { width: `${i}%` }
+  }
+  return widthObject
+}
+
 const General = {
   fullWidth: {
     width: '100%',
@@ -17,6 +25,7 @@ const General = {
   borderRadius: {
     'border-radius': '5px',
   },
+  ...CreateWith(),
 }
 
 export default General
