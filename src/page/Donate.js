@@ -47,6 +47,15 @@ class Donate extends PureComponent {
   }
 
   /**
+   * The function that will be called
+   * When user changed payment option
+   * @param item The item information of payment option
+   */
+  optionChange = item => {
+    console.info(item)
+  }
+
+  /**
    * Render bottom component for this charity
    * @return {PureComponent} The bottom component that included payment options and navigation
    */
@@ -62,6 +71,7 @@ class Donate extends PureComponent {
               data={Transform.createOptionData(paymentOptions, 'amount', ['amount', 'currency'])}
               isGroup={true}
               groupName="payment-options"
+              onChange={this.optionChange}
             />
           </Row>
         </Row>

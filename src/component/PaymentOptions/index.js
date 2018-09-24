@@ -8,6 +8,19 @@ import Text from '../Text'
 const InputRadioComponent = styled.input``
 
 class PaymentOptions extends PureComponent {
+  /**
+   * When radio change
+   * @param {HTMLElement} event The event of radio element
+   * @param {Object} item The item information
+   */
+  onRadioChange = (event, item) => {
+    const { onChange } = this.props
+    if (onChange) onChange(item)
+  }
+
+  /**
+   * Check groupName
+   */
   checkGroupName = () => {
     const { isGroup, groupName } = this.props
 
@@ -37,7 +50,12 @@ class PaymentOptions extends PureComponent {
       const name = isGroup ? groupName : index
       return (
         <Row key={index} styleName="md-gutter-top">
-          <InputRadioComponent name={name} value={value} type="radio" />
+          <InputRadioComponent
+            name={name}
+            value={value}
+            type="radio"
+            onChange={event => this.onRadioChange(event, item)}
+          />
           <Text styleName="sm-gutter-left medium">{label}</Text>
         </Row>
       )
@@ -50,6 +68,7 @@ class PaymentOptions extends PureComponent {
 }
 
 PaymentOptions.propTypes = {
+  onChange: PropTypes.func,
   data: PropTypes.any,
   isGroup: PropTypes.bool,
   groupName: PropTypes.string,
