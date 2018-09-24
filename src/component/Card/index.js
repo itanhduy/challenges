@@ -19,6 +19,16 @@ const CardComponent = styled.div`
     const { theme } = props
     return {
       width: '100%',
+      ...theme.general.boxShadow,
+    }
+  }};
+`
+
+const CardContent = styled.div`
+  ${props => {
+    const { theme } = props
+    return {
+      padding: '25px 15px',
     }
   }};
 `
@@ -30,7 +40,9 @@ class Card extends PureComponent {
       <CardWrapper {...this.props}>
         <CardComponent {...this.props}>
           <Image url={data.image} height={200} />
-          <Text>{data.name}</Text>
+          <CardContent>
+            <Text>{data.name}</Text>
+          </CardContent>
         </CardComponent>
       </CardWrapper>
     )

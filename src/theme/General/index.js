@@ -11,6 +11,9 @@ const General = {
   fullHeight: {
     height: '100%',
   },
+  boxShadow: {
+    'box-shadow': `0px 0px 3px 0px rgba(34,34,34,0.25)`,
+  },
 }
 
 export default General
