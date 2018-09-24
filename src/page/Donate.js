@@ -48,6 +48,9 @@ class Donate extends PureComponent {
     const { charityInformation, paymentOptions, isFetchingData } = this.state
     return (
       <Screen styleName="h-center xl-gutter">
+        <Row styleName="xl-gutter-top">
+          <Text styleName="title bold fadeIn">Donation for {charityInformation.name}</Text>
+        </Row>
         <Row styleName="xl-gutter-top width-30">
           <Card data={charityInformation} columns={1} rightComponent={this.rightComponent} />
         </Row>
