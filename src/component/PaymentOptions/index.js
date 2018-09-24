@@ -38,7 +38,7 @@ class PaymentOptions extends PureComponent {
       return (
         <Row key={index} styleName="md-gutter-top">
           <InputRadioComponent name={name} value={value} type="radio" />
-          <Text styleName="sm-gutter-left">{label}</Text>
+          <Text styleName="sm-gutter-left medium">{label}</Text>
         </Row>
       )
     })
