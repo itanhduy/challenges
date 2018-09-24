@@ -8,8 +8,9 @@ import styledComponents, { withTheme } from 'styled-components'
 let TextComponent = styledComponents.div`
   ${props => {
     const { styleName, theme } = props
-    const { createStyle } = theme
+    const { createStyle, color } = theme
     return {
+      ...color.textSecondary,
       ...createStyle(styleName, 'typography'),
     }
   }}

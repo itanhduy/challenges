@@ -20,7 +20,7 @@ const General = {
     height: '100%',
   },
   boxShadow: {
-    'box-shadow': `0px 0px 3px 0px rgba(34,34,34,0.25)`,
+    'box-shadow': `0px 1px 20px 0px rgba(34,34,34,0.2);`,
   },
   borderRadius: {
     'border-radius': '3px',
