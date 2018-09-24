@@ -5,6 +5,9 @@
  */
 
 const FlexBox = {
+  flexible: {
+    display: 'flex',
+  },
   vertical: {
     flexDirection: 'column',
   },

@@ -10,7 +10,6 @@ const CardWrapper = styled.div`
     const { createStyle } = theme
     return {
       width: `${100 / columns}%`,
-      padding: '15px',
       ...createStyle(styleName, 'card'),
     }
   }};
@@ -21,7 +20,7 @@ const CardComponent = styled.div`
     const { theme, styleName } = props
     const { createStyle } = theme
     return {
-      width: '100%',
+      width: 'calc(100% - 15px)',
       overflow: 'hidden',
       ...theme.general.boxShadow,
       ...createStyle(styleName, 'card'),
@@ -44,7 +43,7 @@ class Card extends PureComponent {
   render() {
     const { data } = this.props
     return (
-      <CardWrapper {...this.props}>
+      <CardWrapper {...this.props} styleName="flexible v-center">
         <CardComponent {...this.props} styleName="borderRadius">
           <Image url={data.image} height={200} />
           <CardContent>
