@@ -94,8 +94,12 @@ class Donate extends PureComponent {
         </Row>
         <Row styleName="md-gutter-top">{this.renderOptionSelected()}</Row>
         <Row styleName="md-gutter-top space-between">
-          <Button styleName="fullWidth">Donate</Button>
-          <Button styleName="fullWidth">Go back home</Button>
+          <Button styleName="width-45" textProps={{ styleName: 'textPrimary medium' }}>
+            Donate
+          </Button>
+          <Button styleName="width-45" textProps={{ styleName: 'textPrimary medium' }}>
+            Go back home
+          </Button>
         </Row>
       </Row>
     )
