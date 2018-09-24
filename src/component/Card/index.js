@@ -42,7 +42,7 @@ const CardContent = styled.div`
 
 class Card extends PureComponent {
   render() {
-    const { data, columns } = this.props
+    const { data } = this.props
     return (
       <CardWrapper {...this.props}>
         <CardComponent {...this.props} styleName="borderRadius">
