@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { Screen, Row, Tex, Card } from '../component'
+import { Screen, Row, Text, Card } from '../component'
 import { API } from '../service'
 
 class Donate extends PureComponent {
@@ -33,12 +33,23 @@ class Donate extends PureComponent {
     )
   }
 
+  rightComponent = () => {
+    const { charityInformation } = this.state
+    const { totalAmount, currency } = charityInformation
+    console.info(charityInformation)
+    return (
+      <Text formatMoney={true} currency={currency}>
+        {totalAmount}
+      </Text>
+    )
+  }
+
   renderView = () => {
     const { charityInformation, paymentOptions, isFetchingData } = this.state
     return (
       <Screen styleName="h-center xl-gutter">
         <Row styleName="xl-gutter-top width-30">
-          <Card data={charityInformation} columns={1} />
+          <Card data={charityInformation} columns={1} rightComponent={this.rightComponent} />
         </Row>
       </Screen>
     )

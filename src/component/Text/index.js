@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import accounting from 'accounting'
 import styledComponents, { withTheme } from 'styled-components'
 
 /**
@@ -17,14 +18,34 @@ let TextComponent = styledComponents.div`
 `
 
 class Text extends PureComponent {
+  /**
+   * Render text
+   * @return {String} The pure text or the text with formatting
+   */
+  renderText = () => {
+    const { formatMoney, currency, children } = this.props
+    switch (formatMoney) {
+      case true:
+        return accounting.formatMoney(children, { symbol: currency, format: '%v %s' })
+      default:
+        return children
+    }
+  }
+
   render() {
-    const { children } = this.props
-    return <TextComponent {...this.props}>{children}</TextComponent>
+    return <TextComponent {...this.props}>{this.renderText()}</TextComponent>
   }
 }
 
 Text.propTypes = {
-  children: PropTypes.string,
+  formatMoney: PropTypes.bool,
+  currency: PropTypes.string,
+  children: PropTypes.any,
+}
+
+Text.defaultProps = {
+  formatMoney: false,
+  currency: 'USD',
 }
 
 export default withTheme(Text)
