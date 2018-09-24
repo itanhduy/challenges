@@ -8,6 +8,7 @@ class Donate extends PureComponent {
     this.state = {
       charityInformation: {},
       paymentOptions: {},
+      paymentOptionSelected: null,
     }
   }
 
@@ -51,8 +52,22 @@ class Donate extends PureComponent {
    * When user changed payment option
    * @param item The item information of payment option
    */
-  optionChange = item => {
-    console.info(item)
+  optionChange = paymentOptionSelected => {
+    this.setState({ paymentOptionSelected })
+  }
+
+  /**
+   * After user selected payment option
+   * Show result so user can know which option they have selected
+   * @return {PureComponent} The componen that included option payment result
+   */
+  renderOptionSelected = () => {
+    const { paymentOptionSelected } = this.state
+    return (
+      paymentOptionSelected && (
+        <Text styleName="md-gutter-top medium">You are gonna donate ${paymentOptionSelected.label}</Text>
+      )
+    )
   }
 
   /**
@@ -60,7 +75,7 @@ class Donate extends PureComponent {
    * @return {PureComponent} The bottom component that included payment options and navigation
    */
   bottomComponent = () => {
-    const { paymentOptions } = this.state
+    const { paymentOptions, paymentOptionSelected } = this.state
     return (
       <Row styleName="vertical">
         <Divider />
@@ -75,6 +90,10 @@ class Donate extends PureComponent {
             />
           </Row>
         </Row>
+        <Row styleName="md-gutter-top">
+          <Divider />
+        </Row>
+        <Row>{this.renderOptionSelected()}</Row>
       </Row>
     )
   }
