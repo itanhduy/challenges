@@ -24,8 +24,27 @@ class App extends Component {
     })
   }
 
-  rightComponent = () => {
-    return <Button textProps={{ styleName: 'textPrimary medium' }}>Donate</Button>
+  /**
+   * When user click on Donate button, run this function
+   * @param {Object} item The data of charity
+   */
+  startDonating = (event, item) => {
+    console.info(event, item)
+  }
+
+  /**
+   * Return right component for card
+   * @param callBackItem The item callback return from the parent component which is wrapping this rightComponent
+   * @return {Button} The button element for right position
+   */
+  rightComponent = callBackItem => {
+    return (
+      <Button
+        textProps={{ styleName: 'textPrimary medium' }}
+        onClick={event => this.startDonating(event, callBackItem)}>
+        Donate
+      </Button>
+    )
   }
 
   render() {

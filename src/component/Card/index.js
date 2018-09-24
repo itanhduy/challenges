@@ -71,14 +71,14 @@ class Card extends PureComponent {
    * @return {PureComponent} The right component was executed
    */
   renderRightComponent = () => {
-    const { rightComponent } = this.props
+    const { rightComponent, data } = this.props
     switch (typeof rightComponent) {
       /**
        * If rightComponent is a function
        * So we just need to execute as function with ()
        */
       case typeof Function:
-        return rightComponent()
+        return rightComponent(data)
       /**
        * If rightComponent is a instance of PureComponent or Component
        * We need to create new element
