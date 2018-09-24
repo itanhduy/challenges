@@ -3,7 +3,7 @@ const Color = {
   secondary: '#F50057',
   text: '#222222',
   textSecondary: '#666D89',
-  border: '#FAFAFA',
+  border: '#DDD',
   textPrimary: {
     color: '#3F51B5',
   },

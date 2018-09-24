@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { Screen, Row, Text, Card } from '../component'
+import { Screen, Row, Text, Card, Divider } from '../component'
 import { API } from '../service'
 
 class Donate extends PureComponent {
@@ -8,7 +8,6 @@ class Donate extends PureComponent {
     this.state = {
       charityInformation: {},
       paymentOptions: {},
-      isFetchingData: true,
     }
   }
 
@@ -27,16 +26,19 @@ class Donate extends PureComponent {
         this.setState({
           charityInformation: charityInfoResponse.data,
           paymentOptions: paymentOptionsResponse.data,
-          isFetchingData: false,
         })
       },
     )
   }
 
+  /**
+   * Render right component for card to show totalAmount
+   * For this charity
+   * @return {Text} The text component with totalAmount
+   */
   rightComponent = () => {
     const { charityInformation } = this.state
     const { totalAmount, currency } = charityInformation
-    console.info(charityInformation)
     return (
       <Text formatMoney={true} currency={currency}>
         {totalAmount}
@@ -44,15 +46,33 @@ class Donate extends PureComponent {
     )
   }
 
+  /**
+   * Render bottom component for this charity
+   * @return {PureComponent} The bottom component that included payment options and navigation
+   */
+  bottomComponent = () => {
+    return (
+      <Row>
+        <Divider />
+      </Row>
+    )
+  }
+
   renderView = () => {
-    const { charityInformation, paymentOptions, isFetchingData } = this.state
+    const { charityInformation, paymentOptions } = this.state
     return (
       <Screen styleName="h-center xl-gutter">
         <Row styleName="xl-gutter-top">
           <Text styleName="title bold fadeIn">Donation for {charityInformation.name}</Text>
         </Row>
         <Row styleName="xl-gutter-top width-30">
-          <Card data={charityInformation} columns={1} rightComponent={this.rightComponent} />
+          <Card
+            data={charityInformation}
+            columns={1}
+            rightComponent={this.rightComponent}
+            bottomComponent={this.bottomComponent}
+            cardContentProps={{ paddingBottom: 0 }}
+          />
         </Row>
       </Screen>
     )

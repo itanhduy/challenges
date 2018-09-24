@@ -52,13 +52,15 @@ const CardComponent = styled.div`
  */
 const CardContent = styled.div`
   ${props => {
-    const { theme, styleName } = props
+    const { theme, styleName, cardContentProps } = props
+    console.info(cardContentProps)
     const { createStyle } = theme
     return {
       /**
        * Default padding for content is 25px for bottom/top and 15px for left/right
        */
       padding: '25px 15px',
+      ...cardContentProps,
       ...createStyle(styleName, 'card'),
     }
   }};
@@ -104,7 +106,7 @@ class Card extends PureComponent {
       <CardWrapper {...this.props} styleName="flexible v-center bounceIn">
         <CardComponent {...this.props} styleName="borderRadius">
           <Image url={image} height={200} />
-          <CardContent styleName="flexible h-center space-between">
+          <CardContent {...this.props} styleName="flexible h-center space-between">
             <Text styleName="medium">{name}</Text>
             {createRightComponent}
           </CardContent>
@@ -130,6 +132,14 @@ Card.propTypes = {
    * Default is 15px
    */
   cardPadding: PropTypes.number,
+  /**
+   * The props for CardContent
+   */
+  cardContentProps: PropTypes.object,
+  /**
+   * The props for CardContent at bottom
+   */
+  cardContentBottomProps: PropTypes.object,
   /**
    * The data for showing inside card
    * Included: Image, text and the right component
