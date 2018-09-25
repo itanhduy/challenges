@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { Screen, Row, Text, Card, Divider, PaymentOptions, Button } from '../component'
+import { Screen, Row, Text, Card, Divider, PaymentOptions, Button, Dialog } from '../component'
 import { API, Transform } from '../service'
 import { PaymentOptionsData } from '../static'
 
@@ -10,6 +10,7 @@ class Donate extends PureComponent {
       charityInformation: {},
       paymentOptions: PaymentOptionsData,
       paymentOptionSelected: null,
+      showDialog: false,
     }
   }
 
@@ -63,10 +64,24 @@ class Donate extends PureComponent {
 
   /**
    * Go back home
+   * @return {Void} Redirect user to home screen
    */
   goBackHome = () => {
     const { history } = this.props
     history.push('/')
+  }
+
+  /**
+   * Make a new donation
+   * Check if user didn't select payment option then show dialog error
+   * @return {Void} New option will be added to database and redirect user to thank you screen
+   */
+  donate = () => {
+    const { paymentOptionSelected } = this.state
+    if (paymentOptionSelected) {
+    } else {
+      this.setState({ showDialog: true })
+    }
   }
 
   /**
@@ -94,7 +109,7 @@ class Donate extends PureComponent {
         </Row>
         <Row styleName="md-gutter-top">{this.renderOptionSelected()}</Row>
         <Row styleName="md-gutter-top space-between">
-          <Button styleName="width-45" textProps={{ styleName: 'textPrimary medium' }}>
+          <Button styleName="width-45" textProps={{ styleName: 'textPrimary medium' }} onClick={this.donate}>
             Donate
           </Button>
           <Button styleName="width-45" textProps={{ styleName: 'textPrimary medium' }} onClick={this.goBackHome}>
@@ -106,7 +121,7 @@ class Donate extends PureComponent {
   }
 
   renderView = () => {
-    const { charityInformation } = this.state
+    const { charityInformation, showDialog } = this.state
     return (
       <Screen styleName="h-center xl-gutter">
         <Row styleName="xl-gutter-top">
@@ -121,6 +136,7 @@ class Donate extends PureComponent {
             cardContentProps={{ paddingBottom: 0 }}
           />
         </Row>
+        <Dialog title="Oops! Something went wrong?" description="Please choose at least one option" show={showDialog} />
       </Screen>
     )
   }

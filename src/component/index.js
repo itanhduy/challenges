@@ -7,5 +7,6 @@ import Screen from './Screen'
 import Text from './Text'
 import Divider from './Divider'
 import PaymentOptions from './PaymentOptions'
+import Dialog from './Dialog'
 
-export { Card, ListCharities, Screen, Text, Row, Button, Image, Divider, PaymentOptions }
+export { Card, ListCharities, Screen, Text, Row, Button, Image, Divider, PaymentOptions, Dialog }

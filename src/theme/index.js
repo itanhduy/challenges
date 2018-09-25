@@ -6,6 +6,7 @@ import General from './General'
 import Row from './Row'
 import Color from './Color'
 import Animation from './Animation'
+import Convert from './Convert'
 
 const MergeTheme = {
   /**
@@ -37,6 +38,16 @@ const MergeTheme = {
    * Only for typography components
    */
   typography: Typography,
+  /**
+   * Included function that helps to convert color and etc...
+   */
+  convert: Convert,
+  /**
+   * Create style depends on styleName
+   * @param {String} styleName The styleName such as: md-gutter, bold, vertical...
+   * @param {String} elementType The type of element such as: Row, Text, Image...
+   * @param {Object} defaultStyle The default object
+   */
   createStyle: (styleName, elementType, defaultStyle) => {
     return CreateStyle(
       styleName,
