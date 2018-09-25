@@ -11,7 +11,7 @@ class Donate extends PureComponent {
     super(props)
     this.state = {
       campainInformation: {},
-      paymentOptions: PaymentOptionsData,
+      paymentOptions: [],
       paymentOptionSelected: null,
       dialogOptions: CreateDialogOptions(false, DialogType.ERROR),
     }
@@ -25,6 +25,7 @@ class Donate extends PureComponent {
     const campainInformationResponse = await API.getCharity(topicId)
     this.setState({
       campainInformation: campainInformationResponse.data,
+      paymentOptions: PaymentOptionsData(campainInformationResponse.data.currency),
     })
   }
 

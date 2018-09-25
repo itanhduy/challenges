@@ -126,6 +126,30 @@
       "amount": 10,
       "currency": "USD",
       "id": 15
+    },
+    {
+      "charitiesId": 1,
+      "amount": 20,
+      "currency": "USD",
+      "id": 16
+    },
+    {
+      "charitiesId": 1,
+      "amount": 50,
+      "currency": "USD",
+      "id": 17
+    },
+    {
+      "charitiesId": 3,
+      "amount": 20,
+      "currency": "USD",
+      "id": 18
+    },
+    {
+      "charitiesId": 1,
+      "amount": 10,
+      "currency": "USD",
+      "id": 19
     }
   ]
 }

@@ -1,27 +1,27 @@
-const PaymentOptions = [
+const PaymentOptions = (currency = 'USD') => [
   {
     amount: 10,
-    currency: 'USD',
+    currency,
   },
   {
     amount: 20,
-    currency: 'USD',
+    currency,
   },
   {
     amount: 50,
-    currency: 'USD',
+    currency,
   },
   {
     amount: 100,
-    currency: 'USD',
+    currency,
   },
   {
     amount: 200,
-    currency: 'USD',
+    currency,
   },
   {
     amount: 500,
-    currency: 'USD',
+    currency,
   },
 ]
 
