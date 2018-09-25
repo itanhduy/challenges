@@ -7,8 +7,10 @@ import Row from './Row'
 import Color from './Color'
 import Animation from './Animation'
 import Convert from './Convert'
+import Responsive from './Responsive'
 
 const MergeTheme = {
+  responsive: Responsive,
   /**
    * A list of animation for this application
    */
@@ -71,4 +73,4 @@ const MergeTheme = {
 }
 
 export default MergeTheme
-export { FlexBox, Typography, Merged }
+export { FlexBox, Typography, Merged, Responsive }

@@ -168,7 +168,7 @@ class Donate extends PureComponent {
         <Row styleName="xl-gutter-top">
           <Text styleName="title bold fadeIn">Donation for {campaignInformation.name}</Text>
         </Row>
-        <Row styleName="xl-gutter-top width-30">
+        <Row styleName="xl-gutter-top width-50">
           <Card
             data={campaignInformation}
             columns={1}

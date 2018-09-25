@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { sumBy } from 'lodash'
+import { sumBy, map, cloneDeep } from 'lodash'
+import { Responsive } from '../theme'
 import { ListCharities, Screen, Text, Row, Button } from '../component'
 import { CharityAction, DonationAction } from '../redux/actions'
 import { API } from '../service'
@@ -11,20 +12,36 @@ class Home extends PureComponent {
     super(props)
     this.state = {
       charities: [],
+      columns: 2,
     }
   }
 
   async componentDidMount() {
     const charitiesResponse = await API.charities()
     const paymentsRespone = await API.payments()
+    const newListCharities = this.mapPaymentAmount(charitiesResponse.data, paymentsRespone.data)
     const { updateTotalDonate } = this.props
     this.setState(
       {
-        charities: this.mapPaymentAmount(charitiesResponse.data, paymentsRespone.data),
+        charities: newListCharities,
       },
       () => {
         const totalAmount = sumBy(paymentsRespone.data, item => item.amount)
         updateTotalDonate(totalAmount)
+      },
+    )
+    Responsive.listen(
+      0,
+      1024,
+      () => {
+        this.setState({
+          columns: 1,
+        })
+      },
+      () => {
+        this.setState({
+          columns: 2,
+        })
       },
     )
   }
@@ -36,7 +53,7 @@ class Home extends PureComponent {
    * @return {Array<Object>} New array of campaign with totalAmount
    */
   mapPaymentAmount = (listCharities, payments) => {
-    const newListCharities = listCharities.map(item => {
+    const newListCharities = map(listCharities, item => {
       const totalAmount = sumBy(payments, payment => {
         return item.id === payment.charitiesId ? payment.amount : 0
       })
@@ -84,17 +101,17 @@ class Home extends PureComponent {
   }
 
   render() {
-    const { charities } = this.state
+    const { charities, columns } = this.state
     const { header } = this.props
     return (
       <Screen styleName="v-center xl-gutter">
         <Row styleName="xl-gutter-top">
           <Text styleName="title bold fadeIn">{header}</Text>
         </Row>
-        <Row styleName="vertical width-50 xl-gutter">
+        <Row styleName="vertical width-75 xl-gutter">
           <ListCharities
-            data={charities}
-            columns={2}
+            data={cloneDeep(charities)}
+            columns={columns}
             rightComponent={this.rightComponent}
             descriptionComponent={this.descriptionComponent}
           />
@@ -137,33 +154,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Home)
-
-// function handlePay(id, amount, currency) {
-//   const self = this
-//   return function() {
-//     fetch('http://localhost:3001/payments', {
-//       method: 'POST',
-//       body: `{ "charitiesId": ${id}, "amount": ${amount}, "currency": "${currency}" }`,
-//     })
-//       .then(function(resp) {
-//         return resp.json()
-//       })
-//       .then(function() {
-//         self.props.dispatch({
-//           type: 'UPDATE_TOTAL_DONATE',
-//           amount,
-//         })
-//         self.props.dispatch({
-//           type: 'UPDATE_MESSAGE',
-//           message: `Thanks for donate ${amount}!`,
-//         })
-
-//         setTimeout(function() {
-//           self.props.dispatch({
-//             type: 'UPDATE_MESSAGE',
-//             message: '',
-//           })
-//         }, 2000)
-//       })
-//   }
-// }

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { isEqual } from 'lodash'
 import Row from '../Row'
 import Card from '../Card'
 
@@ -39,7 +40,7 @@ class ListCharities extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    if (!Object.is(prevProps.data, this.props.data)) {
+    if (!isEqual(prevProps, this.props)) {
       this.createArrayItems()
     }
   }
@@ -50,10 +51,16 @@ class ListCharities extends PureComponent {
    * @return {Array<Card>} Array of card components
    */
   renderItems = items => {
-    const { rightComponent, descriptionComponent } = this.props
+    const { rightComponent, descriptionComponent, columns } = this.props
     return items.map((item, index) => {
       return (
-        <Card key={index} data={item} rightComponent={rightComponent} descriptionComponent={descriptionComponent} />
+        <Card
+          key={index}
+          data={item}
+          rightComponent={rightComponent}
+          descriptionComponent={descriptionComponent}
+          columns={columns}
+        />
       )
     })
   }
