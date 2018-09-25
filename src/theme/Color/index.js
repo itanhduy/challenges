@@ -5,14 +5,27 @@ const Color = {
   text: '#222222',
   textSecondary: '#666D89',
   border: '#DDDDDD',
-  textPrimary: {
+  green: '#4CAF50',
+  textWhiteColor: {
+    color: '#FFFFFF',
+  },
+  textPrimaryColor: {
     color: '#3F51B5',
   },
-  textSecondary: {
+  textSecondaryColor: {
     color: '#666D89',
   },
-  textBase: {
+  textBaseColor: {
     color: '#222222',
+  },
+  backgroundError: {
+    backgroundColor: '#F50057',
+  },
+  backgroundSuccess: {
+    backgroundColor: '#4CAF50',
+  },
+  backgroundInfo: {
+    backgroundColor: '#3F51B5',
   },
 }
 

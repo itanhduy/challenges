@@ -52,11 +52,17 @@ const MergeTheme = {
     return CreateStyle(
       styleName,
       {
+        /**
+         * Include default theme for all elements
+         */
         ...MergeTheme.gutters,
         ...MergeTheme.flexBox,
         ...MergeTheme.general,
         ...MergeTheme.color,
         ...MergeTheme.animation,
+        /**
+         * Include specific styling for element
+         */
         ...MergeTheme[elementType],
       },
       defaultStyle,

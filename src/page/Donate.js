@@ -73,13 +73,6 @@ class Donate extends PureComponent {
   }
 
   /**
-   * Create dialog options
-   * @param {Boolean} show True will show dialog, false will close dialog
-   * @param {String} type Type of dialog. Check DialogType
-   */
-  createDialogOptions = (show, type, title, description) => {}
-
-  /**
    * Make a new donation
    * Check if user didn't select payment option then show dialog error
    * @return {Void} New option will be added to database and redirect user to thank you screen
@@ -145,10 +138,10 @@ class Donate extends PureComponent {
         </Row>
         <Row styleName="md-gutter-top">{this.renderOptionSelected()}</Row>
         <Row styleName="md-gutter-top space-between">
-          <Button styleName="width-45" textProps={{ styleName: 'textPrimary medium' }} onClick={this.donate}>
+          <Button styleName="width-45" textProps={{ styleName: 'textPrimaryColor medium' }} onClick={this.donate}>
             Donate
           </Button>
-          <Button styleName="width-45" textProps={{ styleName: 'textPrimary medium' }} onClick={this.goBackHome}>
+          <Button styleName="width-45" textProps={{ styleName: 'textPrimaryColor medium' }} onClick={this.goBackHome}>
             Go back home
           </Button>
         </Row>

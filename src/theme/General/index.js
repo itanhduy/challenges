@@ -28,6 +28,9 @@ const General = {
   borderRadius: {
     'border-radius': '3px',
   },
+  overflowHidden: {
+    overflow: 'hidden',
+  },
   ...CreateWith(),
 }
 

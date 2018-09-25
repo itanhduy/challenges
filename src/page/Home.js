@@ -42,7 +42,7 @@ class App extends Component {
   rightComponent = callBackItem => {
     return (
       <Button
-        textProps={{ styleName: 'textPrimary medium' }}
+        textProps={{ styleName: 'textPrimaryColor medium' }}
         onClick={event => this.startDonating(event, callBackItem)}>
         Donate
       </Button>
