@@ -136,7 +136,12 @@ class Donate extends PureComponent {
             cardContentProps={{ paddingBottom: 0 }}
           />
         </Row>
-        <Dialog title="Oops! Something went wrong?" description="Please choose at least one option" show={showDialog} />
+        <Dialog
+          title="Oops! Something went wrong?"
+          description="Please choose at least one payment option"
+          show={showDialog}
+          showOKButton={false}
+        />
       </Screen>
     )
   }
