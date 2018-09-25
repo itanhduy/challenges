@@ -1,10 +1,7 @@
 import { DonationType } from '../types'
 
 const initialState = {
-  info: {
-    donationInformation: {},
-    campainInformation: {},
-  },
+  info: {},
 }
 
 const DonationReducer = (state = initialState, action) => {

@@ -8,6 +8,9 @@ const FlexBox = {
   flexible: {
     display: 'flex',
   },
+  unflexible: {
+    flex: 'unset',
+  },
   vertical: {
     flexDirection: 'column',
   },
