@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 import { Screen, Row, Text, Card, Divider, PaymentOptions, Button, Dialog } from '../component'
+import { DonationAction } from '../redux/actions'
 import { API, Transform } from '../service'
 import { PaymentOptionsData } from '../static'
 import { DialogType, CreateDialogOptions } from '../type'
@@ -8,7 +10,7 @@ class Donate extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      charityInformation: {},
+      campainInformation: {},
       paymentOptions: PaymentOptionsData,
       paymentOptionSelected: null,
       dialogOptions: CreateDialogOptions(false, DialogType.ERROR),
@@ -20,9 +22,9 @@ class Donate extends PureComponent {
      * Get the topicId from the url
      */
     const { topicId } = this.props.match.params
-    const charityInformationResponse = await API.getCharity(topicId)
+    const campainInformationResponse = await API.getCharity(topicId)
     this.setState({
-      charityInformation: charityInformationResponse.data,
+      campainInformation: campainInformationResponse.data,
     })
   }
 
@@ -32,8 +34,8 @@ class Donate extends PureComponent {
    * @return {Text} The text component with totalAmount
    */
   rightComponent = () => {
-    const { charityInformation } = this.state
-    const { totalAmount, currency } = charityInformation
+    const { campainInformation } = this.state
+    const { totalAmount, currency } = campainInformation
     return (
       <Text formatMoney={true} currency={currency}>
         {totalAmount}
@@ -78,11 +80,18 @@ class Donate extends PureComponent {
    * @return {Void} New option will be added to database and redirect user to thank you screen
    */
   donate = () => {
-    const { paymentOptionSelected, charityInformation } = this.state
+    const { paymentOptionSelected, campainInformation } = this.state
+    const { addNewDonation, history } = this.props
     if (paymentOptionSelected) {
       const { item } = paymentOptionSelected
-      API.makeNewPayment(charityInformation.id, item.amount, item.currency)
-        .then(response => {})
+      API.makeNewPayment(campainInformation.id, item.amount, item.currency)
+        .then(response => {
+          addNewDonation({
+            donationInformation: response.data,
+            campainInformation: campainInformation,
+          })
+          history.push('/thank-you')
+        })
         .catch(error => {
           this.setState({
             dialogOptions: CreateDialogOptions(
@@ -150,16 +159,16 @@ class Donate extends PureComponent {
   }
 
   renderView = () => {
-    const { charityInformation, dialogOptions } = this.state
+    const { campainInformation, dialogOptions } = this.state
     const { show, title, type, description } = dialogOptions
     return (
       <Screen styleName="h-center xl-gutter">
         <Row styleName="xl-gutter-top">
-          <Text styleName="title bold fadeIn">Donation for {charityInformation.name}</Text>
+          <Text styleName="title bold fadeIn">Donation for {campainInformation.name}</Text>
         </Row>
         <Row styleName="xl-gutter-top width-30">
           <Card
-            data={charityInformation}
+            data={campainInformation}
             columns={1}
             rightComponent={this.rightComponent}
             bottomComponent={this.bottomComponent}
@@ -183,4 +192,23 @@ class Donate extends PureComponent {
   }
 }
 
-export default Donate
+function mapStateToProps(state) {
+  return {}
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    /**
+     * Store new donation
+     * Will show it in ThankYou screen
+     */
+    addNewDonation: info => {
+      dispatch(DonationAction.addNewDonation(info))
+    },
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Donate)
