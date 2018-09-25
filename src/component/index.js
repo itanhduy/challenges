@@ -9,5 +9,6 @@ import Divider from './Divider'
 import PaymentOptions from './PaymentOptions'
 import Dialog from './Dialog'
 import Nothing from './Nothing'
+import GoBackHome from './GoBackHome'
 
-export { Card, ListCharities, Screen, Text, Row, Button, Image, Divider, PaymentOptions, Dialog, Nothing }
+export { Card, ListCharities, Screen, Text, Row, Button, Image, Divider, PaymentOptions, Dialog, Nothing, GoBackHome }

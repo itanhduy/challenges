@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Home } from '../page'
-import { Screen, Row, Divider, Text, Nothing } from '../component'
+import { Screen, Row, Divider, Text, Nothing, Button, GoBackHome } from '../component'
 
 class ThankYou extends PureComponent {
   /**
@@ -11,8 +11,8 @@ class ThankYou extends PureComponent {
    */
   renderView = () => {
     const { donation } = this.props
-    const { donationInformation, campainInformation } = donation.info
-    if (!donationInformation && !campainInformation) {
+    const { donationInformation, campaignInformation } = donation.info
+    if (!donationInformation && !campaignInformation) {
       return <Nothing />
     }
     return (
@@ -20,12 +20,16 @@ class ThankYou extends PureComponent {
         <Row styleName="lg-gutter-top flexible v-center">
           <Text styleName="bold heading">{`Thank you for donation ${donationInformation.amount} ${
             donationInformation.currency
-          } on campain ${campainInformation.name}`}</Text>
+          } on campaign ${campaignInformation.name}`}</Text>
         </Row>
         <Row styleName="lg-gutter-top">
           <Divider />
         </Row>
         <Home header="You may interested with these campaigns" {...this.props} />
+
+        <Row styleName="lg-gutter-top">
+          <GoBackHome />
+        </Row>
       </Screen>
     )
   }

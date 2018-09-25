@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { withRouter } from 'react-router-dom'
 import Screen from '../Screen'
 import Text from '../Text'
-import Button from '../Button'
+import GoBackHome from '../GoBackHome'
 import Row from '../Row'
 import styled from 'styled-components'
 
@@ -21,11 +21,6 @@ const NothingComponent = styled.div`
 `
 
 class Nothing extends PureComponent {
-  goBackHome = () => {
-    const { history } = this.props
-    history.push('/')
-  }
-
   render() {
     return (
       <NothingComponent>
@@ -33,9 +28,7 @@ class Nothing extends PureComponent {
           <Text styleName="heading bold">Sorry. We got lost!</Text>
           <Text styleName="title medium">Nothing here</Text>
           <Row styleName="lg-gutter-top unflexible">
-            <Button textProps={{ styleName: 'textPrimaryColor medium' }} onClick={this.goBackHome}>
-              Go Back Home
-            </Button>
+            <GoBackHome />
           </Row>
         </Screen>
       </NothingComponent>

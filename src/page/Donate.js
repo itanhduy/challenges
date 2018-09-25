@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { Screen, Row, Text, Card, Divider, PaymentOptions, Button, Dialog } from '../component'
+import { Screen, Row, Text, Card, Divider, PaymentOptions, Button, Dialog, GoBackHome } from '../component'
 import { DonationAction } from '../redux/actions'
 import { API, Transform } from '../service'
 import { PaymentOptionsData } from '../static'
@@ -10,7 +10,7 @@ class Donate extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      campainInformation: {},
+      campaignInformation: {},
       paymentOptions: [],
       paymentOptionSelected: null,
       dialogOptions: CreateDialogOptions(false, DialogType.ERROR),
@@ -22,10 +22,10 @@ class Donate extends PureComponent {
      * Get the topicId from the url
      */
     const { topicId } = this.props.match.params
-    const campainInformationResponse = await API.getCharity(topicId)
+    const campaignInformationResponse = await API.getCharity(topicId)
     this.setState({
-      campainInformation: campainInformationResponse.data,
-      paymentOptions: PaymentOptionsData(campainInformationResponse.data.currency),
+      campaignInformation: campaignInformationResponse.data,
+      paymentOptions: PaymentOptionsData(campaignInformationResponse.data.currency),
     })
   }
 
@@ -35,8 +35,8 @@ class Donate extends PureComponent {
    * @return {Text} The text component with totalAmount
    */
   rightComponent = () => {
-    const { campainInformation } = this.state
-    const { totalAmount, currency } = campainInformation
+    const { campaignInformation } = this.state
+    const { totalAmount, currency } = campaignInformation
     return (
       <Text formatMoney={true} currency={currency}>
         {totalAmount}
@@ -67,29 +67,20 @@ class Donate extends PureComponent {
   }
 
   /**
-   * Go back home
-   * @return {Void} Redirect user to home screen
-   */
-  goBackHome = () => {
-    const { history } = this.props
-    history.push('/')
-  }
-
-  /**
    * Make a new donation
    * Check if user didn't select payment option then show dialog error
    * @return {Void} New option will be added to database and redirect user to thank you screen
    */
   donate = () => {
-    const { paymentOptionSelected, campainInformation } = this.state
+    const { paymentOptionSelected, campaignInformation } = this.state
     const { addNewDonation, history } = this.props
     if (paymentOptionSelected) {
       const { item } = paymentOptionSelected
-      API.makeNewPayment(campainInformation.id, item.amount, item.currency)
+      API.makeNewPayment(campaignInformation.id, item.amount, item.currency)
         .then(response => {
           addNewDonation({
             donationInformation: response.data,
-            campainInformation: campainInformation,
+            campaignInformation: campaignInformation,
           })
           history.push('/thank-you')
         })
@@ -151,25 +142,23 @@ class Donate extends PureComponent {
           <Button styleName="width-45" textProps={{ styleName: 'textPrimaryColor medium' }} onClick={this.donate}>
             Donate
           </Button>
-          <Button styleName="width-45" textProps={{ styleName: 'textPrimaryColor medium' }} onClick={this.goBackHome}>
-            Go back home
-          </Button>
+          <GoBackHome styleName="width-45" />
         </Row>
       </Row>
     )
   }
 
   renderView = () => {
-    const { campainInformation, dialogOptions } = this.state
+    const { campaignInformation, dialogOptions } = this.state
     const { show, title, type, description } = dialogOptions
     return (
       <Screen styleName="h-center xl-gutter">
         <Row styleName="xl-gutter-top">
-          <Text styleName="title bold fadeIn">Donation for {campainInformation.name}</Text>
+          <Text styleName="title bold fadeIn">Donation for {campaignInformation.name}</Text>
         </Row>
         <Row styleName="xl-gutter-top width-30">
           <Card
-            data={campainInformation}
+            data={campaignInformation}
             columns={1}
             rightComponent={this.rightComponent}
             bottomComponent={this.bottomComponent}
