@@ -11,7 +11,7 @@ let TextComponent = styledComponents.div`
     const { styleName, theme } = props
     const { createStyle, color } = theme
     return {
-      ...color.textSecondary,
+      ...color.textSecondaryColor,
       ...createStyle(styleName, 'typography'),
     }
   }}

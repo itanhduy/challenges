@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { sumBy } from 'lodash'
 import { ListCharities, Screen, Text, Row, Button } from '../component'
 import { CharityAction } from '../redux/actions'
 import { API } from '../service'
 
-class App extends Component {
+class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
       charities: [],
-      selectedAmount: 10,
     }
   }
 
@@ -51,10 +51,11 @@ class App extends Component {
 
   render() {
     const { charities } = this.state
+    const { header } = this.props
     return (
       <Screen styleName="h-center xl-gutter">
         <Row styleName="xl-gutter-top">
-          <Text styleName="title bold fadeIn">Omise Tamboon React</Text>
+          <Text styleName="title bold fadeIn">{header}</Text>
         </Row>
         <Row styleName="vertical width-50 xl-gutter">
           <ListCharities data={charities} columns={2} rightComponent={this.rightComponent} />
@@ -103,6 +104,10 @@ class App extends Component {
   }
 }
 
+Home.propTypes = {
+  header: PropTypes.string.isRequired,
+}
+
 function mapStateToProps(state) {
   return {
     charity: state.charity,
@@ -124,7 +129,7 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App)
+)(Home)
 
 function handlePay(id, amount, currency) {
   const self = this
