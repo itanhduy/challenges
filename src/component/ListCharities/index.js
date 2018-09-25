@@ -50,9 +50,11 @@ class ListCharities extends PureComponent {
    * @return {Array<Card>} Array of card components
    */
   renderItems = items => {
-    const { rightComponent } = this.props
+    const { rightComponent, descriptionComponent } = this.props
     return items.map((item, index) => {
-      return <Card key={index} data={item} rightComponent={rightComponent} />
+      return (
+        <Card key={index} data={item} rightComponent={rightComponent} descriptionComponent={descriptionComponent} />
+      )
     })
   }
 

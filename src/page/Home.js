@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { sumBy } from 'lodash'
 import { ListCharities, Screen, Text, Row, Button } from '../component'
-import { CharityAction } from '../redux/actions'
+import { CharityAction, DonationAction } from '../redux/actions'
 import { API } from '../service'
 
 class Home extends PureComponent {
@@ -18,10 +18,32 @@ class Home extends PureComponent {
     const charitiesResponse = await API.charities()
     const paymentsRespone = await API.payments()
     const { updateTotalDonate } = this.props
-    this.setState({ charities: charitiesResponse.data }, () => {
-      const totalAmount = sumBy(paymentsRespone.data, item => item.amount)
-      updateTotalDonate(totalAmount)
+    this.setState(
+      {
+        charities: this.mapPaymentAmount(charitiesResponse.data, paymentsRespone.data),
+      },
+      () => {
+        const totalAmount = sumBy(paymentsRespone.data, item => item.amount)
+        updateTotalDonate(totalAmount)
+      },
+    )
+  }
+
+  /**
+   * Map totalAmount of charity with payments response
+   * @param {Array} listCharities  The list charities
+   * @param {Array} payments The list payments
+   * @return {Array<Object>} New array of campaign with totalAmount
+   */
+  mapPaymentAmount = (listCharities, payments) => {
+    const newListCharities = listCharities.map(item => {
+      const totalAmount = sumBy(payments, payment => {
+        return item.id === payment.charitiesId ? payment.amount : 0
+      })
+      item.totalAmount = totalAmount
+      return item
     })
+    return newListCharities
   }
 
   /**
@@ -30,7 +52,8 @@ class Home extends PureComponent {
    * @return {Function} Redirect user to donation page
    */
   startDonating = (event, item) => {
-    const { history } = this.props
+    const { history, selectedCampaign } = this.props
+    selectedCampaign(item)
     history.push(`donate/${item.id}`)
   }
 
@@ -49,6 +72,17 @@ class Home extends PureComponent {
     )
   }
 
+  /**
+   * Return description component for card
+   * @param callBackItem The item callback return from the parent component which is wrapping this rightComponent
+   * @return {PureComponent} The component for description position
+   */
+  descriptionComponent = callBackItem => {
+    return (
+      <Text styleName="caption medium">{`Total raised: ${callBackItem.totalAmount} ${callBackItem.currency}`}</Text>
+    )
+  }
+
   render() {
     const { charities } = this.state
     const { header } = this.props
@@ -58,7 +92,12 @@ class Home extends PureComponent {
           <Text styleName="title bold fadeIn">{header}</Text>
         </Row>
         <Row styleName="vertical width-50 xl-gutter">
-          <ListCharities data={charities} columns={2} rightComponent={this.rightComponent} />
+          <ListCharities
+            data={charities}
+            columns={2}
+            rightComponent={this.rightComponent}
+            descriptionComponent={this.descriptionComponent}
+          />
         </Row>
       </Screen>
     )
@@ -83,6 +122,13 @@ function mapDispatchToProps(dispatch) {
      */
     updateTotalDonate: total => {
       dispatch(CharityAction.updateTotalDonate(total))
+    },
+    /**
+     * Dispatch campaign that user is selecting to donate to store
+     * @param {Object} campaign The campaign information
+     */
+    selectedCampaign: campaign => {
+      dispatch(DonationAction.selectedCampaign(campaign))
     },
   }
 }

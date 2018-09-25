@@ -2,6 +2,7 @@ import { DonationType } from '../types'
 
 const initialState = {
   info: {},
+  campaign: {},
 }
 
 const DonationReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const DonationReducer = (state = initialState, action) => {
       return {
         ...state,
         info: action.info,
+      }
+    case DonationType.SELECTED_CAMPAIGN:
+      return {
+        ...state,
+        campaign: action.campaign,
       }
     default:
       return state

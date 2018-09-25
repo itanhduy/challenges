@@ -35,8 +35,9 @@ class Donate extends PureComponent {
    * @return {Text} The text component with totalAmount
    */
   rightComponent = () => {
-    const { campaignInformation } = this.state
-    const { totalAmount, currency } = campaignInformation
+    const { donation } = this.props
+    const { campaign } = donation
+    const { currency, totalAmount } = campaign
     return (
       <Text formatMoney={true} currency={currency}>
         {totalAmount}
@@ -183,7 +184,9 @@ class Donate extends PureComponent {
 }
 
 function mapStateToProps(state) {
-  return {}
+  return {
+    donation: state.donation,
+  }
 }
 
 function mapDispatchToProps(dispatch) {

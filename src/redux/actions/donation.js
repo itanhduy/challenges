@@ -11,6 +11,16 @@ const DonationAction = {
       info,
     }
   },
+  /**
+   * Store selected campaign
+   * @param {Object} campaign The campaign information
+   */
+  selectedCampaign: campaign => {
+    return {
+      type: DonationType.SELECTED_CAMPAIGN,
+      campaign,
+    }
+  },
 }
 
 export default DonationAction

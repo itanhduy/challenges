@@ -1,6 +1,7 @@
 import React, { PureComponent, Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
+import Row from '../Row'
 import Image from '../Image'
 import Text from '../Text'
 
@@ -98,16 +99,20 @@ class Card extends PureComponent {
   }
 
   render() {
-    const { data, rightComponent, bottomComponent } = this.props
+    const { data, rightComponent, bottomComponent, descriptionComponent } = this.props
     const { name, image } = data
     const createRightComponent = this.renderExtendedComponent(rightComponent)
     const createBottomComponent = this.renderExtendedComponent(bottomComponent)
+    const createDescriptionComponent = this.renderExtendedComponent(descriptionComponent)
     return (
       <CardWrapper {...this.props} styleName="flexible v-center bounceIn">
         <CardComponent {...this.props} styleName="borderRadius">
           <Image url={image} height={200} />
           <CardContent {...this.props} styleName="flexible h-center space-between">
-            <Text styleName="medium">{name}</Text>
+            <Row styleName="vertical">
+              <Text styleName="medium">{name}</Text>
+              {createDescriptionComponent}
+            </Row>
             {createRightComponent}
           </CardContent>
           {createBottomComponent && <CardContent>{createBottomComponent}</CardContent>}
@@ -122,6 +127,8 @@ Card.propTypes = {
    * The right component for card
    */
   rightComponent: PropTypes.any,
+  bottomComponent: PropTypes.any,
+  descriptionComponent: PropTypes.any,
   /**
    * How many columns you want to show?
    * Use it for creating layout
