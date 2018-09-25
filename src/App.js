@@ -7,12 +7,14 @@ const AppRouterConfig = [
   {
     Path: '/',
     Component: Home,
+    Exact: true,
     Data: {
       header: 'Omise Tamboon React',
     },
   },
   {
     Path: '/donate/:topicId',
+    Exact: false,
     Component: Donate,
   },
 ]
@@ -24,8 +26,8 @@ class App extends PureComponent {
    */
   createRouter = () => {
     return AppRouterConfig.map((routerConfig, index) => {
-      const { Path, Component, Data } = routerConfig
-      return <Route key={index} path={Path} render={() => <Component {...Data} />} />
+      const { Path, Component, Exact, Data } = routerConfig
+      return <Route key={index} path={Path} exact={Exact} render={props => <Component {...props} {...Data} />} />
     })
   }
 

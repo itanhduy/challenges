@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { sumBy } from 'lodash'
@@ -6,7 +6,7 @@ import { ListCharities, Screen, Text, Row, Button } from '../component'
 import { CharityAction } from '../redux/actions'
 import { API } from '../service'
 
-class Home extends Component {
+class Home extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
@@ -62,45 +62,6 @@ class Home extends Component {
         </Row>
       </Screen>
     )
-    //   const self = this
-    //   const cards = this.state.charities.map(function(item, i) {
-    //     const payments = [10, 20, 50, 100, 500].map((amount, j) => (
-    //       <label key={j}>
-    //         <input
-    //           type="radio"
-    //           name="payment"
-    //           onClick={function() {
-    //             self.setState({ selectedAmount: amount })
-    //           }}
-    //         />{' '}
-    //         {amount}
-    //       </label>
-    //     ))
-    //     return (
-    //       <Card key={i}>
-    //         <p>{item.name}</p>
-    //         {payments}
-    //         <button onClick={handlePay.call(self, item.id, self.state.selectedAmount, item.currency)}>Pay</button>
-    //       </Card>
-    //     )
-    //   })
-    //   const style = {
-    //     color: 'red',
-    //     margin: '1em 0',
-    //     fontWeight: 'bold',
-    //     fontSize: '16px',
-    //     textAlign: 'center',
-    //   }
-    //   const donate = this.props.donate
-    //   const message = this.props.message
-    //   return (
-    //     <div>
-    //       <h1>Tamboon React</h1>
-    //       <p>All donations: {donate}</p>
-    //       <p style={style}>{message}</p>
-    //       {cards}
-    //     </div>
-    //   )
   }
 }
 
@@ -131,32 +92,32 @@ export default connect(
   mapDispatchToProps,
 )(Home)
 
-function handlePay(id, amount, currency) {
-  const self = this
-  return function() {
-    fetch('http://localhost:3001/payments', {
-      method: 'POST',
-      body: `{ "charitiesId": ${id}, "amount": ${amount}, "currency": "${currency}" }`,
-    })
-      .then(function(resp) {
-        return resp.json()
-      })
-      .then(function() {
-        self.props.dispatch({
-          type: 'UPDATE_TOTAL_DONATE',
-          amount,
-        })
-        self.props.dispatch({
-          type: 'UPDATE_MESSAGE',
-          message: `Thanks for donate ${amount}!`,
-        })
+// function handlePay(id, amount, currency) {
+//   const self = this
+//   return function() {
+//     fetch('http://localhost:3001/payments', {
+//       method: 'POST',
+//       body: `{ "charitiesId": ${id}, "amount": ${amount}, "currency": "${currency}" }`,
+//     })
+//       .then(function(resp) {
+//         return resp.json()
+//       })
+//       .then(function() {
+//         self.props.dispatch({
+//           type: 'UPDATE_TOTAL_DONATE',
+//           amount,
+//         })
+//         self.props.dispatch({
+//           type: 'UPDATE_MESSAGE',
+//           message: `Thanks for donate ${amount}!`,
+//         })
 
-        setTimeout(function() {
-          self.props.dispatch({
-            type: 'UPDATE_MESSAGE',
-            message: '',
-          })
-        }, 2000)
-      })
-  }
-}
+//         setTimeout(function() {
+//           self.props.dispatch({
+//             type: 'UPDATE_MESSAGE',
+//             message: '',
+//           })
+//         }, 2000)
+//       })
+//   }
+// }
