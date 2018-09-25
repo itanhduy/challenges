@@ -62,19 +62,31 @@ class Dialog extends PureComponent {
   }
 
   /**
+   * Render header depends on type of dialog
+   * We have 3 types as now: Error, Success and Info
+   * Each type will have different color and icon
+   */
+  renderHeader = () => {
+    const { title, type } = this.props
+    return (
+      <Row styleName="h-center v-center lg-gutter">
+        <Text styleName="bold">{title}</Text>
+      </Row>
+    )
+  }
+
+  /**
    * Render dialog with show, title, description
    * @return {PureComponent} The dialog component
    */
   renderDialog = () => {
-    const { show, title, description } = this.props
+    const { show, description } = this.props
     if (show) {
       return (
         <Backdrop>
-          <DialogComponent {...this.props} styleName="bounceIn xl-gutter borderRadius">
-            <Screen>
-              <Row styleName="h-center v-center">
-                <Text styleName="bold">{title}</Text>
-              </Row>
+          <DialogComponent {...this.props} styleName="bounceIn borderRadius">
+            {this.renderHeader()}
+            <Screen styleName="lg-gutter">
               <Row styleName="md-gutter-top h-center v-center">
                 <Text styleName="medium">{description}</Text>
               </Row>
