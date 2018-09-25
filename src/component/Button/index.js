@@ -20,7 +20,7 @@ class Button extends PureComponent {
   render() {
     const { children, textProps, styleName } = this.props
     return (
-      <ButtonComponent {...this.props} styleName={`borderRadius v-center flexible ${styleName}`}>
+      <ButtonComponent {...this.props} styleName={`borderRadius h-center flexible ${styleName}`}>
         <Text {...textProps}>{children}</Text>
       </ButtonComponent>
     )

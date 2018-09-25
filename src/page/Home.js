@@ -87,7 +87,7 @@ class Home extends PureComponent {
     const { charities } = this.state
     const { header } = this.props
     return (
-      <Screen styleName="h-center xl-gutter">
+      <Screen styleName="v-center xl-gutter">
         <Row styleName="xl-gutter-top">
           <Text styleName="title bold fadeIn">{header}</Text>
         </Row>

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { sumBy } from 'lodash'
 import { Screen, Row, Text, Card, Divider, PaymentOptions, Button, Dialog, GoBackHome } from '../component'
 import { DonationAction } from '../redux/actions'
 import { API, Transform } from '../service'
@@ -13,6 +14,7 @@ class Donate extends PureComponent {
       campaignInformation: {},
       paymentOptions: [],
       paymentOptionSelected: null,
+      paymentData: null,
       dialogOptions: CreateDialogOptions(false, DialogType.ERROR),
     }
   }
@@ -23,8 +25,11 @@ class Donate extends PureComponent {
      */
     const { topicId } = this.props.match.params
     const campaignInformationResponse = await API.getCharity(topicId)
+    const paymentDataResponse = await API.getPayments(topicId)
+
     this.setState({
       campaignInformation: campaignInformationResponse.data,
+      paymentData: paymentDataResponse.data,
       paymentOptions: PaymentOptionsData(campaignInformationResponse.data.currency),
     })
   }
@@ -35,14 +40,20 @@ class Donate extends PureComponent {
    * @return {Text} The text component with totalAmount
    */
   rightComponent = () => {
-    const { donation } = this.props
-    const { campaign } = donation
-    const { currency, totalAmount } = campaign
-    return (
-      <Text formatMoney={true} currency={currency}>
-        {totalAmount}
-      </Text>
-    )
+    const { paymentData, campaignInformation } = this.state
+    if (paymentData) {
+      const { currency } = campaignInformation
+      const totalAmount = sumBy(paymentData, payment => payment.amount)
+      return (
+        <Row styleName="h-end">
+          <Text styleName="sm-gutter-right">Total raised:</Text>
+          <Text formatMoney={true} currency={currency}>
+            {totalAmount}
+          </Text>
+        </Row>
+      )
+    }
+    return null
   }
 
   /**
@@ -153,7 +164,7 @@ class Donate extends PureComponent {
     const { campaignInformation, dialogOptions } = this.state
     const { show, title, type, description } = dialogOptions
     return (
-      <Screen styleName="h-center xl-gutter">
+      <Screen styleName="v-center xl-gutter">
         <Row styleName="xl-gutter-top">
           <Text styleName="title bold fadeIn">Donation for {campaignInformation.name}</Text>
         </Row>

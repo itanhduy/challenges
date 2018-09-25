@@ -20,10 +20,16 @@ const FlexBox = {
   'space-between': {
     justifyContent: 'space-between',
   },
-  'v-center': {
+  'h-center': {
     justifyContent: 'center',
   },
-  'h-center': {
+  'h-end': {
+    justifyContent: 'flex-end',
+  },
+  'h-start': {
+    justifyContent: 'flex-start',
+  },
+  'v-center': {
     alignItems: 'center',
   },
 }

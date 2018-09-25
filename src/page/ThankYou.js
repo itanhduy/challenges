@@ -27,7 +27,7 @@ class ThankYou extends PureComponent {
         </Row>
         <Home header="You may interested with these campaigns" {...this.props} />
 
-        <Row styleName="lg-gutter flexible v-center">
+        <Row styleName="lg-gutter flexible h-center">
           <GoBackHome styleName="width-30" />
         </Row>
       </Screen>
