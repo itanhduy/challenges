@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { Screen, Row, Text, Card, Divider, PaymentOptions, Button, Dialog } from '../component'
 import { API, Transform } from '../service'
 import { PaymentOptionsData } from '../static'
+import { DialogType, CreateDialogOptions } from '../type'
 
 class Donate extends PureComponent {
   constructor(props) {
@@ -10,7 +11,7 @@ class Donate extends PureComponent {
       charityInformation: {},
       paymentOptions: PaymentOptionsData,
       paymentOptionSelected: null,
-      showDialog: false,
+      dialogOptions: CreateDialogOptions(false, DialogType.ERROR),
     }
   }
 
@@ -72,16 +73,51 @@ class Donate extends PureComponent {
   }
 
   /**
+   * Create dialog options
+   * @param {Boolean} show True will show dialog, false will close dialog
+   * @param {String} type Type of dialog. Check DialogType
+   */
+  createDialogOptions = (show, type, title, description) => {}
+
+  /**
    * Make a new donation
    * Check if user didn't select payment option then show dialog error
    * @return {Void} New option will be added to database and redirect user to thank you screen
    */
   donate = () => {
-    const { paymentOptionSelected } = this.state
+    const { paymentOptionSelected, charityInformation } = this.state
     if (paymentOptionSelected) {
+      const { item } = paymentOptionSelected
+      API.makeNewPayment(charityInformation.id, item.amount, item.currency)
+        .then(response => {})
+        .catch(error => {
+          this.setState({
+            dialogOptions: CreateDialogOptions(
+              true,
+              DialogType.ERROR,
+              'Oops! Something went wrong?',
+              `We can't make a new payment. Please try again later`,
+            ),
+          })
+        })
     } else {
-      this.setState({ showDialog: true })
+      this.setState({
+        dialogOptions: CreateDialogOptions(
+          true,
+          DialogType.ERROR,
+          'Oops! Something went wrong?',
+          'Please choose at least one payment option',
+        ),
+      })
     }
+  }
+
+  /**
+   * On click close button
+   * @return {Void} Close dialog
+   */
+  onClickClose = () => {
+    this.setState({ dialogOptions: CreateDialogOptions(false) })
   }
 
   /**
@@ -121,7 +157,8 @@ class Donate extends PureComponent {
   }
 
   renderView = () => {
-    const { charityInformation, showDialog } = this.state
+    const { charityInformation, dialogOptions } = this.state
+    const { show, title, type, description } = dialogOptions
     return (
       <Screen styleName="h-center xl-gutter">
         <Row styleName="xl-gutter-top">
@@ -137,9 +174,11 @@ class Donate extends PureComponent {
           />
         </Row>
         <Dialog
-          title="Oops! Something went wrong?"
-          description="Please choose at least one payment option"
-          show={showDialog}
+          type={type}
+          title={title}
+          description={description}
+          show={show}
+          onClickClose={this.onClickClose}
           showOKButton={false}
         />
       </Screen>

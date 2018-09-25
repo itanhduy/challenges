@@ -72,6 +72,48 @@
       "amount": 500,
       "currency": "THB",
       "id": 6
+    },
+    {
+      "charitiesId": 1,
+      "amount": 10,
+      "currency": "USD",
+      "id": 7
+    },
+    {
+      "charitiesId": 1,
+      "amount": 10,
+      "currency": "USD",
+      "id": 8
+    },
+    {
+      "charitiesId": 1,
+      "amount": 10,
+      "currency": "USD",
+      "id": 9
+    },
+    {
+      "charitiesId": 1,
+      "amount": 10,
+      "currency": "USD",
+      "id": 10
+    },
+    {
+      "charitiesId": 1,
+      "amount": 10,
+      "currency": "USD",
+      "id": 11
+    },
+    {
+      "charitiesId": 1,
+      "amount": 10,
+      "currency": "USD",
+      "id": 12
+    },
+    {
+      "charitiesId": 1,
+      "amount": 10,
+      "currency": "USD",
+      "id": 13
     }
   ]
 }

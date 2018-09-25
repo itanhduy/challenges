@@ -44,6 +44,7 @@ const Transform = {
       return {
         value,
         label,
+        item,
       }
     })
 

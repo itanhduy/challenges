@@ -31,6 +31,15 @@ const API = {
       },
     })
   },
+  /**
+   * Create new payment
+   * @param {Number} id The id of charity
+   * @param {Number} amount The amount for this campaign
+   * @param {String} currency The type of currency such as: USD
+   */
+  makeNewPayment: (id, amount, currency) => {
+    return Server.post('payments', { charitiesId: id, amount: amount, currency: currency })
+  },
 }
 
 export default API
