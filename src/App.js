@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Home from './page/Home'
-import Donate from './page/Donate'
+import { Home, Donate, ThankYou } from './page'
 
 const AppRouterConfig = [
   {
@@ -16,6 +15,11 @@ const AppRouterConfig = [
     Path: '/donate/:topicId',
     Exact: false,
     Component: Donate,
+  },
+  {
+    Path: '/thank-you',
+    Exact: false,
+    Component: ThankYou,
   },
 ]
 
