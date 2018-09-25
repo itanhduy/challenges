@@ -17,8 +17,8 @@ class ThankYou extends PureComponent {
     }
     return (
       <Screen>
-        <Row styleName="lg-gutter-top flexible v-center">
-          <Text styleName="bold heading">{`Thank you for donation ${donationInformation.amount} ${
+        <Row styleName="lg-gutter-top">
+          <Text styleName="bold heading text-center width-100">{`Thank you for donation ${donationInformation.amount} ${
             donationInformation.currency
           } on campaign ${campaignInformation.name}`}</Text>
         </Row>
@@ -27,8 +27,8 @@ class ThankYou extends PureComponent {
         </Row>
         <Home header="You may interested with these campaigns" {...this.props} />
 
-        <Row styleName="lg-gutter-top">
-          <GoBackHome />
+        <Row styleName="lg-gutter flexible v-center">
+          <GoBackHome styleName="width-30" />
         </Row>
       </Screen>
     )

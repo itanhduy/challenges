@@ -38,6 +38,9 @@ const Typography = {
   normal: {
     fontWeight: 300,
   },
+  'text-center': {
+    textAlign: 'center',
+  },
 }
 
 export default Typography
