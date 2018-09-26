@@ -1,5 +1,5 @@
 import { API } from '../../service'
-import { ServerMock, APIPayment } from '../../mock'
+import { ServerMock, APIPaymentMock } from '../../mock'
 
 describe('Should Get Specific Payment With ID 1', () => {
   beforeAll(done => {
@@ -14,7 +14,7 @@ describe('Should Get Specific Payment With ID 1', () => {
   })
   test('Start Testing #GetSpecificPaymentWithID1', () => {
     API.payment(1).then(response => {
-      expect(response.data).toMatchObject(APIPayment)
+      expect(response.data).toMatchObject(APIPaymentMock)
     })
   })
 })
