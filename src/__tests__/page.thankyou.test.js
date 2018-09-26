@@ -4,7 +4,7 @@ import { ProviderProvide } from '../component'
 import { ThankYou } from '../page'
 import renderer from 'react-test-renderer'
 
-test('Should render ThankYou component', () => {
+test('Should Render ThankYou Component', () => {
   const thankYouComponent = renderer.create(
     <ProviderProvide>
       <ThankYou {...ThankYouMock} />

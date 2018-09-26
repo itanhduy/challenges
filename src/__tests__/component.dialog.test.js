@@ -2,7 +2,7 @@ import React from 'react'
 import { Dialog, ProviderProvide } from '../component'
 import renderer from 'react-test-renderer'
 
-test('Should render Dialog component', () => {
+test('Should Render Dialog Component', () => {
   const dialogComponent = renderer.create(
     <ProviderProvide>
       <Dialog />

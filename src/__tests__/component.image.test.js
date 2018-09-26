@@ -2,7 +2,7 @@ import React from 'react'
 import { Image, ProviderProvide } from '../component'
 import renderer from 'react-test-renderer'
 
-test('Should render Image component', () => {
+test('Should Render Image Component', () => {
   const imageComponent = renderer.create(
     <ProviderProvide>
       <Image url="/images/baan-kru-noi.jpg" height={200} />

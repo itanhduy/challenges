@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render Button component 1`] = `
+exports[`Should Render Button Component 1`] = `
 <div
   className="Button__ButtonComponent-sc-1b5ft91-0 hSlJrW"
 >

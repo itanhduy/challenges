@@ -2,7 +2,7 @@ import React from 'react'
 import { Divider, ProviderProvide } from '../component'
 import renderer from 'react-test-renderer'
 
-test('Should render Divider component', () => {
+test('Should Render Divider Component', () => {
   const dividerComponent = renderer.create(
     <ProviderProvide>
       <Divider />

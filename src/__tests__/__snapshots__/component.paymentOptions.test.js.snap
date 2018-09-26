@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render PaymentOptions component 1`] = `
+exports[`Should Render PaymentOptions Component 1`] = `
 Array [
   <div
     className="Row__RowComponent-sc-6b1omn-0 jieBAG"

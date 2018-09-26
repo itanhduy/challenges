@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render Card component 1`] = `
+exports[`Should Render Card Component 1`] = `
 <div
   className="Card__CardWrapper-sc-9nsasl-0 boSWwI"
   data={

@@ -4,7 +4,7 @@ import { Transform } from '../service'
 import { PaymentOptions, ProviderProvide } from '../component'
 import renderer from 'react-test-renderer'
 
-test('Should render PaymentOptions component', () => {
+test('Should Render PaymentOptions Component', () => {
   const paymentOptionsComponent = renderer.create(
     <ProviderProvide>
       <PaymentOptions

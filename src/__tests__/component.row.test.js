@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, ProviderProvide } from '../component'
 import renderer from 'react-test-renderer'
 
-test('Should render Row component', () => {
+test('Should Render Row Component', () => {
   const rowComponent = renderer.create(
     <ProviderProvide>
       <Row />

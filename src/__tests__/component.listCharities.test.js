@@ -3,7 +3,7 @@ import { ListCharitiesMock } from '../mock'
 import { ListCharities, ProviderProvide } from '../component'
 import renderer from 'react-test-renderer'
 
-test('Should render ListCharities component', () => {
+test('Should Render ListCharities Component', () => {
   const listCharitiesComponent = renderer.create(
     <ProviderProvide>
       <ListCharities {...ListCharitiesMock} />

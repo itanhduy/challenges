@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render ThankYou component 1`] = `
+exports[`Should Render ThankYou Component 1`] = `
 <div
   className="Screen__ScreenComponent-sc-182dw2i-0 iWQuAI"
 >

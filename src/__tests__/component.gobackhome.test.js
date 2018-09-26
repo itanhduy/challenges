@@ -2,7 +2,7 @@ import React from 'react'
 import { GoBackHome, ProviderProvide } from '../component'
 import renderer from 'react-test-renderer'
 
-test('Should render GoBackHome component', () => {
+test('Should Render GoBackHome Component', () => {
   const goBackHomeComponent = renderer.create(
     <ProviderProvide>
       <GoBackHome />

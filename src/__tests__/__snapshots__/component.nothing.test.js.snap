@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render Nothing component 1`] = `
+exports[`Should Render Nothing Component 1`] = `
 <div
   className="Nothing__NothingComponent-jdnat4-0 kUdMpa"
 >

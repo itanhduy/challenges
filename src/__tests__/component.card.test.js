@@ -3,7 +3,7 @@ import { CardMock } from '../mock'
 import { Card, ProviderProvide } from '../component'
 import renderer from 'react-test-renderer'
 
-test('Should render Card component', () => {
+test('Should Render Card Component', () => {
   const cardComponent = renderer.create(
     <ProviderProvide>
       <Card {...CardMock} />

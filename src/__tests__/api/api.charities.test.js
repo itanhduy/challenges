@@ -1,8 +1,20 @@
 import { API } from '../../service'
-import { APICharitiesMock } from '../../mock'
+import { APICharitiesMock, ServerMock } from '../../mock'
 
-test('Should get list charities', () => {
-  API.charities().then(response => {
-    expect(response.data).toMatchObject(APICharitiesMock)
+describe('Should Get List Charities', () => {
+  beforeAll(done => {
+    ServerMock.start(() => {
+      done()
+    })
+  })
+  afterAll(done => {
+    ServerMock.stop(() => {
+      done()
+    })
+  })
+  test('Start Testing #GetListCharities', () => {
+    API.charities().then(response => {
+      expect(response.data).toMatchObject(APICharitiesMock)
+    })
   })
 })

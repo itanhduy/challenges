@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render Divider component 1`] = `
+exports[`Should Render Divider Component 1`] = `
 <div
   className="Divider__DividerComponent-sc-1m9b2q8-0 bSmuG"
 />

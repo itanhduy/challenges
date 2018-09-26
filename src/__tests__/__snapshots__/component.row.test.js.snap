@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render Row component 1`] = `
+exports[`Should Render Row Component 1`] = `
 <div
   className="Row__RowComponent-sc-6b1omn-0 fzdLIv"
 />

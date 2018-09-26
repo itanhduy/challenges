@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render Text component 1`] = `
+exports[`Should Render Text Component 1`] = `
 <div
   className="Text__TextComponent-sc-1bxt3zu-0 iOCDGX"
 >

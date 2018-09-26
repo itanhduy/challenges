@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render ListCharities component 1`] = `
+exports[`Should Render ListCharities Component 1`] = `
 Array [
   <div
     className="Row__RowComponent-sc-6b1omn-0 lmGZdT"
