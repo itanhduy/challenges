@@ -6,6 +6,6 @@
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
     "styled-components",
-    "transform-class-properties"
+    "@babel/plugin-proposal-class-properties"
   ]
 }

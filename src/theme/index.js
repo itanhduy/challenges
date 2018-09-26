@@ -73,4 +73,4 @@ const MergeTheme = {
 }
 
 export default MergeTheme
-export { FlexBox, Typography, Merged, Responsive }
+export { FlexBox, Typography, CreateStyle, Gutters, General, Row, Color, Animation, Convert, Responsive }
