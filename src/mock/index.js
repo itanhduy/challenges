@@ -2,5 +2,6 @@ import DonateMock from './donate.mock'
 import ThankYouMock from './thankyou.mock'
 import CardMock from './card.mock'
 import ListCharitiesMock from './listCharities.mock'
+import APICharitiesMock from './api.charities.mock'
 
-export { DonateMock, ThankYouMock, CardMock, ListCharitiesMock }
+export { DonateMock, ThankYouMock, CardMock, ListCharitiesMock, APICharitiesMock }
