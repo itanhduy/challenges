@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render GoBackHome component 1`] = `
+<div
+  className="Button__ButtonComponent-sc-1b5ft91-0 hSlJrW"
+  onClick={[Function]}
+>
+  <div
+    className="Text__TextComponent-sc-1bxt3zu-0 khpdy"
+  >
+    Go Back Home
+  </div>
+</div>
+`;
