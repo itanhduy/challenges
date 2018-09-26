@@ -47,8 +47,8 @@ class Home extends PureComponent {
         maxWidth: 1024,
         inCase: () => {
           this.setState({
-            columns: 1,
-            widthPercent: 75,
+            columns: 2,
+            widthPercent: 100,
           })
         },
       },
