@@ -60,7 +60,7 @@ class Home extends PureComponent {
           })
         },
       },
-    ])
+    ]).start()
   }
 
   /**
