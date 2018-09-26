@@ -57,6 +57,7 @@ class Home extends PureComponent {
         inCase: () => {
           this.setState({
             columns: 2,
+            widthPercent: 75,
           })
         },
       },
@@ -123,7 +124,7 @@ class Home extends PureComponent {
     return (
       <Screen styleName="v-center">
         <Row styleName="xl-gutter-top">
-          <Text styleName="title bold fadeIn">{header}</Text>
+          <Text styleName="bold title text-center width-100 fadeIn">{header}</Text>
         </Row>
         <Row styleName={`vertical width-${widthPercent} xl-gutter-top`}>
           <ListCharities
