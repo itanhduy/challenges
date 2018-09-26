@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render PaymentOptions component 1`] = `
+Array [
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 jieBAG"
+  >
+    <input
+      className="PaymentOptions__InputRadioComponent-ntz8c-0 clOdEn"
+      name="payment-options"
+      onChange={[Function]}
+      type="radio"
+      value={10}
+    />
+    <div
+      className="Text__TextComponent-sc-1bxt3zu-0 eXSCTZ"
+    >
+      10 USD
+    </div>
+  </div>,
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 jieBAG"
+  >
+    <input
+      className="PaymentOptions__InputRadioComponent-ntz8c-0 clOdEn"
+      name="payment-options"
+      onChange={[Function]}
+      type="radio"
+      value={20}
+    />
+    <div
+      className="Text__TextComponent-sc-1bxt3zu-0 eXSCTZ"
+    >
+      20 USD
+    </div>
+  </div>,
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 jieBAG"
+  >
+    <input
+      className="PaymentOptions__InputRadioComponent-ntz8c-0 clOdEn"
+      name="payment-options"
+      onChange={[Function]}
+      type="radio"
+      value={50}
+    />
+    <div
+      className="Text__TextComponent-sc-1bxt3zu-0 eXSCTZ"
+    >
+      50 USD
+    </div>
+  </div>,
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 jieBAG"
+  >
+    <input
+      className="PaymentOptions__InputRadioComponent-ntz8c-0 clOdEn"
+      name="payment-options"
+      onChange={[Function]}
+      type="radio"
+      value={100}
+    />
+    <div
+      className="Text__TextComponent-sc-1bxt3zu-0 eXSCTZ"
+    >
+      100 USD
+    </div>
+  </div>,
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 jieBAG"
+  >
+    <input
+      className="PaymentOptions__InputRadioComponent-ntz8c-0 clOdEn"
+      name="payment-options"
+      onChange={[Function]}
+      type="radio"
+      value={200}
+    />
+    <div
+      className="Text__TextComponent-sc-1bxt3zu-0 eXSCTZ"
+    >
+      200 USD
+    </div>
+  </div>,
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 jieBAG"
+  >
+    <input
+      className="PaymentOptions__InputRadioComponent-ntz8c-0 clOdEn"
+      name="payment-options"
+      onChange={[Function]}
+      type="radio"
+      value={500}
+    />
+    <div
+      className="Text__TextComponent-sc-1bxt3zu-0 eXSCTZ"
+    >
+      500 USD
+    </div>
+  </div>,
+]
+`;

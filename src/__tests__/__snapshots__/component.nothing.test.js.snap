@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render Nothing component 1`] = `
+<div
+  className="Nothing__NothingComponent-jdnat4-0 kUdMpa"
+>
+  <div
+    className="Screen__ScreenComponent-sc-182dw2i-0 hRvjuy"
+  >
+    <div
+      className="Text__TextComponent-sc-1bxt3zu-0 cqBAVx"
+    >
+      Sorry. We got lost!
+    </div>
+    <div
+      className="Text__TextComponent-sc-1bxt3zu-0 dJWwVI"
+    >
+      Nothing here
+    </div>
+    <div
+      className="Row__RowComponent-sc-6b1omn-0 hQquMB"
+    >
+      <div
+        className="Button__ButtonComponent-sc-1b5ft91-0 hSlJrW"
+        onClick={[Function]}
+      >
+        <div
+          className="Text__TextComponent-sc-1bxt3zu-0 khpdy"
+        >
+          Go Back Home
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
