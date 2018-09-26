@@ -25,7 +25,7 @@ class ThankYou extends PureComponent {
         <Row styleName="lg-gutter-top">
           <Divider />
         </Row>
-        <Home header="You may interested with these campaigns" {...this.props} />
+        <Home header="You may be interested in these campaigns" {...this.props} />
 
         <Row styleName="lg-gutter flexible h-center">
           <GoBackHome styleName="width-30" />
