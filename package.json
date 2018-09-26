@@ -7,7 +7,7 @@
   "author": "Ratchagarn Naewbuntad <ratchagarn@omise.co>",
   "license": "MIT",
   "scripts": {
-    "server": "json-server --watch db.json --port 3001",
+    "server": "json-server --watch db.json --host 192.168.1.4 --port 3001",
     "client": "webpack-dev-server",
     "test": "jest"
   },

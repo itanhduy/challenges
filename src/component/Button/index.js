@@ -9,6 +9,7 @@ const ButtonComponent = styled.div`
     const { color, createStyle } = theme
     return {
       border: `2px solid ${color.primary}`,
+      height: '25px',
       padding: '5px',
       cursor: 'pointer',
       ...createStyle(styleName, 'button'),
@@ -20,7 +21,7 @@ class Button extends PureComponent {
   render() {
     const { children, textProps, styleName } = this.props
     return (
-      <ButtonComponent {...this.props} styleName={`borderRadius h-center flexible ${styleName}`}>
+      <ButtonComponent {...this.props} styleName={`borderRadius h-center v-center flexible ${styleName}`}>
         <Text {...textProps}>{children}</Text>
       </ButtonComponent>
     )

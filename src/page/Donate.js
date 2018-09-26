@@ -204,7 +204,7 @@ class Donate extends PureComponent {
     return (
       <Screen styleName="v-center">
         <Row styleName="xl-gutter-top">
-          <Text styleName="title bold fadeIn">Donation for {campaignInformation.name}</Text>
+          <Text styleName="bold title text-center width-100 fadeIn">Donation for {campaignInformation.name}</Text>
         </Row>
         <Row styleName={`xl-gutter-top width-${widthPercent}`}>
           <Card
