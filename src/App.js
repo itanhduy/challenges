@@ -17,7 +17,7 @@ const AppRouterConfig = [
     Component: Donate,
   },
   {
-    Path: '/thank-you',
+    Path: '/thank-you/:paymentId',
     Exact: false,
     Component: ThankYou,
   },

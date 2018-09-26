@@ -14,6 +14,13 @@ const API = {
     return Server.get('payments')
   },
   /**
+   * Get specific payment information
+   * @param {Number} id The id of payment
+   */
+  payment: id => {
+    return Server.get(`payments/${id}`)
+  },
+  /**
    * Get chariry information
    * @param {Number} id The id of charity
    */

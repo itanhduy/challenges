@@ -132,7 +132,7 @@ class Donate extends PureComponent {
             donationInformation: response.data,
             campaignInformation: campaignInformation,
           })
-          history.push('/thank-you')
+          history.push(`/thank-you/${response.data.id}`)
         })
         .catch(error => {
           this.setState({

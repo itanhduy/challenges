@@ -1,26 +1,40 @@
 import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
 import { Home } from '../page'
-import { Screen, Row, Divider, Text, Nothing, Button, GoBackHome } from '../component'
+import { API } from '../service'
+import { Screen, Row, Divider, Text, Nothing, GoBackHome } from '../component'
 
 class ThankYou extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      paymentInformation: {},
+      charityInformation: {},
+    }
+  }
+
+  async componentDidMount() {
+    const { paymentId } = this.props.match.params
+    const paymentResponse = await API.payment(paymentId)
+    const charityInformationResponse = await API.getCharity(paymentResponse.data.charitiesId)
+    this.setState({
+      paymentInformation: paymentResponse.data,
+      charityInformation: charityInformationResponse.data,
+    })
+  }
+
   /**
    * Check if we don't have enough information
    * Then show Nothing component, otherwise show ThankYou content
    * @return {PureComponent} Nothing component or ThankYou component
    */
   renderView = () => {
-    const { donation } = this.props
-    const { donationInformation, campaignInformation } = donation.info
-    if (!donationInformation && !campaignInformation) {
-      return <Nothing />
-    }
+    const { charityInformation, paymentInformation } = this.state
     return (
       <Screen>
         <Row styleName="lg-gutter-top">
-          <Text styleName="bold heading text-center width-100">{`Thank you for donation ${donationInformation.amount} ${
-            donationInformation.currency
-          } on campaign ${campaignInformation.name}`}</Text>
+          <Text styleName="bold heading text-center width-100">{`Thank you for donation ${paymentInformation.amount} ${
+            paymentInformation.currency
+          } on campaign ${charityInformation.name}`}</Text>
         </Row>
         <Row styleName="lg-gutter-top">
           <Divider />
@@ -39,10 +53,4 @@ class ThankYou extends PureComponent {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    donation: state.donation,
-  }
-}
-
-export default connect(mapStateToProps)(ThankYou)
+export default ThankYou
