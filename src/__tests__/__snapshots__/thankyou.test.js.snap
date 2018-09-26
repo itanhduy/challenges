@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render ThankYou component 1`] = `
+<div
+  className="Screen__ScreenComponent-sc-182dw2i-0 iWQuAI"
+>
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 dwZpDU"
+  >
+    <div
+      className="Text__TextComponent-sc-1bxt3zu-0 euNJLl"
+    >
+      Thank you for donation undefined undefined on campaign undefined
+    </div>
+  </div>
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 dwZpDU"
+  >
+    <div
+      className="Divider__DividerComponent-sc-1m9b2q8-0 bSmuG"
+    />
+  </div>
+  <div
+    className="Screen__ScreenComponent-sc-182dw2i-0 ksPqLC"
+  >
+    <div
+      className="Row__RowComponent-sc-6b1omn-0 ilGeGH"
+    >
+      <div
+        className="Text__TextComponent-sc-1bxt3zu-0 iimCvt"
+      >
+        You may be interested in these campaigns
+      </div>
+    </div>
+    <div
+      className="Row__RowComponent-sc-6b1omn-0 cUkQeO"
+    />
+  </div>
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 hSYDlf"
+  >
+    <div
+      className="Button__ButtonComponent-sc-1b5ft91-0 iSMCZO"
+      onClick={[Function]}
+    >
+      <div
+        className="Text__TextComponent-sc-1bxt3zu-0 khpdy"
+      >
+        Go Back Home
+      </div>
+    </div>
+  </div>
+</div>
+`;

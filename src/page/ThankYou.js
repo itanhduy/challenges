@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Home } from '../page'
 import { API } from '../service'
-import { Screen, Row, Divider, Text, Nothing, GoBackHome } from '../component'
+import { Screen, Row, Divider, Text, GoBackHome } from '../component'
 
 class ThankYou extends PureComponent {
   constructor(props) {

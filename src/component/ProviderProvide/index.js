@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import Store from '../../store'
@@ -13,7 +14,9 @@ class ProviderProvide extends PureComponent {
     const { children } = this.props
     return (
       <Provider store={Store}>
-        <ThemeProvider theme={Theme}>{children}</ThemeProvider>
+        <ThemeProvider theme={Theme}>
+          <BrowserRouter>{children}</BrowserRouter>
+        </ThemeProvider>
       </Provider>
     )
   }
