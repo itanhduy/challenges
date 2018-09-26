@@ -13,6 +13,7 @@ class Home extends PureComponent {
     this.state = {
       charities: [],
       columns: 2,
+      widthPercent: 75,
     }
   }
 
@@ -30,20 +31,36 @@ class Home extends PureComponent {
         updateTotalDonate(totalAmount)
       },
     )
-    Responsive.listen(
-      0,
-      1024,
-      () => {
-        this.setState({
-          columns: 1,
-        })
+    Responsive.listen([
+      {
+        minWidth: 0,
+        maxWidth: 425,
+        inCase: () => {
+          this.setState({
+            columns: 1,
+            widthPercent: 100,
+          })
+        },
       },
-      () => {
-        this.setState({
-          columns: 2,
-        })
+      {
+        minWidth: 425,
+        maxWidth: 1024,
+        inCase: () => {
+          this.setState({
+            columns: 1,
+            widthPercent: 75,
+          })
+        },
       },
-    )
+      {
+        minWidth: 1024,
+        inCase: () => {
+          this.setState({
+            columns: 2,
+          })
+        },
+      },
+    ])
   }
 
   /**
@@ -101,14 +118,14 @@ class Home extends PureComponent {
   }
 
   render() {
-    const { charities, columns } = this.state
+    const { charities, columns, widthPercent } = this.state
     const { header } = this.props
     return (
-      <Screen styleName="v-center xl-gutter">
+      <Screen styleName="v-center">
         <Row styleName="xl-gutter-top">
           <Text styleName="title bold fadeIn">{header}</Text>
         </Row>
-        <Row styleName="vertical width-75 xl-gutter">
+        <Row styleName={`vertical width-${widthPercent} xl-gutter-top`}>
           <ListCharities
             data={cloneDeep(charities)}
             columns={columns}

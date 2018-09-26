@@ -105,7 +105,7 @@ class Card extends PureComponent {
     const createBottomComponent = this.renderExtendedComponent(bottomComponent)
     const createDescriptionComponent = this.renderExtendedComponent(descriptionComponent)
     return (
-      <CardWrapper {...this.props} styleName="flexible v-center bounceIn">
+      <CardWrapper {...this.props} styleName="flexible v-center h-center bounceIn">
         <CardComponent {...this.props} styleName="borderRadius">
           <Image url={image} height={200} />
           <CardContent {...this.props} styleName="flexible h-center space-between">
