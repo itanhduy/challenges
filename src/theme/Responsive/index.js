@@ -12,7 +12,7 @@ const Responsive = {
   startResponsive: arrayListen => {
     const currentWidth = is.ios() ? window.innerWidth : window.screen.width
     arrayListen.forEach(condition => {
-      const { minWidth = 0, maxWidth = window.outerWidth, inCase, outCase } = condition
+      const { minWidth = 0, maxWidth = currentWidth, inCase, outCase } = condition
       if (currentWidth > minWidth && currentWidth <= maxWidth) {
         if (inCase) inCase()
       } else {

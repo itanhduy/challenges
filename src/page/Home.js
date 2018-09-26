@@ -89,7 +89,7 @@ class Home extends PureComponent {
   startDonating = (event, item) => {
     const { history, selectedCampaign } = this.props
     selectedCampaign(item)
-    history.push(`donate/${item.id}`)
+    history.push(`/donate/${item.id}`)
   }
 
   /**
