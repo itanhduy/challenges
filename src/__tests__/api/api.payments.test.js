@@ -1,11 +1,20 @@
-// import { API } from '../../service'
-// import { ServerMock } from '../../mock'
+import { API } from '../../service'
+import { ServerMock } from '../../mock'
 
-// test('Should get list payments', () => {
-//   ServerMock.start(async server => {
-//     const response = await API.payments()
-//     server.close(() => {
-//       expect(response.status).toBe(200)
-//     })
-//   })
-// })
+describe('Should Get List Payments', () => {
+  beforeAll(done => {
+    ServerMock.start(() => {
+      done()
+    })
+  })
+  afterAll(done => {
+    ServerMock.stop(() => {
+      done()
+    })
+  })
+  test('Start Testing #GetListPayments', () => {
+    API.charities().then(response => {
+      expect(response.status).toBe(200)
+    })
+  })
+})

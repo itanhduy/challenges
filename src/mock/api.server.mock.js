@@ -15,13 +15,7 @@ const ServerMock = {
     /**
      * Get server instance for stopping this server later
      */
-    serverInstance = server.listen(
-      {
-        host: 'http://192.168.1.4',
-        port: 3001,
-      },
-      done,
-    )
+    serverInstance = server.listen(3001, '192.168.1.4', done)
   },
   stop: done => {
     serverInstance.close(done)

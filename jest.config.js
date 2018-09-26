@@ -9,5 +9,5 @@ module.exports = {
     NODE_ENV: 'test',
   },
   moduleFileExtensions: ['js', 'jsx'],
-  moduleDirectories: ['node_modules', 'src/frontend', 'src/shared'],
+  moduleDirectories: ['node_modules'],
 }
