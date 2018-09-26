@@ -1,3 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render Home component 1`] = `null`;
+exports[`Should render Home component 1`] = `
+<div
+  className="Screen__ScreenComponent-sc-182dw2i-0 ksPqLC"
+>
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 ilGeGH"
+  >
+    <div
+      className="Text__TextComponent-sc-1bxt3zu-0 iimCvt"
+    >
+      Omise Tamboon React
+    </div>
+  </div>
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 cUkQeO"
+  />
+</div>
+`;

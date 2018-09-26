@@ -1,16 +1,14 @@
 import React from 'react'
-import Store from '../store'
-import { Provider } from 'react-redux'
+import { ProviderProvide } from '../component'
 import { Home } from '../page'
 import renderer from 'react-test-renderer'
 
 test('Should render Home component', () => {
   const homeComponent = renderer.create(
-    <Provider store={Store}>
+    <ProviderProvide>
       <Home header="Omise Tamboon React" />
-    </Provider>,
+    </ProviderProvide>,
   )
   const tree = homeComponent.toJSON()
-  console.info(tree)
   expect(tree).toMatchSnapshot()
 })

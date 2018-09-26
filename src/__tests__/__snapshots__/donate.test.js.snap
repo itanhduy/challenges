@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render Donate component 1`] = `
+<div
+  className="Screen__ScreenComponent-sc-182dw2i-0 ksPqLC"
+>
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 ilGeGH"
+  >
+    <div
+      className="Text__TextComponent-sc-1bxt3zu-0 iimCvt"
+    >
+      Donation for 
+    </div>
+  </div>
+  <div
+    className="Row__RowComponent-sc-6b1omn-0 gxdfZP"
+  >
+    <div
+      className="Card__CardWrapper-sc-9nsasl-0 drlepc"
+      data={Object {}}
+    >
+      <div
+        className="Card__CardComponent-sc-9nsasl-1 clGIEO"
+        data={Object {}}
+      >
+        <div
+          className="Image__ImageComponent-sc-1qzvlhi-0 cIPFke"
+          height={200}
+        />
+        <div
+          className="Card__CardContent-sc-9nsasl-2 jbOzcf"
+          data={Object {}}
+        >
+          <div
+            className="Row__RowComponent-sc-6b1omn-0 dPagVA"
+          >
+            <div
+              className="Text__TextComponent-sc-1bxt3zu-0 bcXjgf"
+            />
+          </div>
+        </div>
+        <div
+          className="Card__CardContent-sc-9nsasl-2 giNtnB"
+        >
+          <div
+            className="Row__RowComponent-sc-6b1omn-0 dPagVA"
+          >
+            <div
+              className="Divider__DividerComponent-sc-1m9b2q8-0 bSmuG"
+            />
+            <div
+              className="Row__RowComponent-sc-6b1omn-0 ctwCvs"
+            >
+              <div
+                className="Text__TextComponent-sc-1bxt3zu-0 bcXjgf"
+              >
+                Payment options
+              </div>
+              <div
+                className="Row__RowComponent-sc-6b1omn-0 ctwCvs"
+              />
+            </div>
+            <div
+              className="Row__RowComponent-sc-6b1omn-0 jieBAG"
+            >
+              <div
+                className="Divider__DividerComponent-sc-1m9b2q8-0 bSmuG"
+              />
+            </div>
+            <div
+              className="Row__RowComponent-sc-6b1omn-0 jieBAG"
+            >
+              <div
+                className="Text__TextComponent-sc-1bxt3zu-0 bcXjgf"
+              >
+                Please choose at least one option
+              </div>
+            </div>
+            <div
+              className="Row__RowComponent-sc-6b1omn-0 fLhEPp"
+            >
+              <div
+                className="Button__ButtonComponent-sc-1b5ft91-0 gDPDbt"
+                onClick={[Function]}
+              >
+                <div
+                  className="Text__TextComponent-sc-1bxt3zu-0 khpdy"
+                >
+                  Donate
+                </div>
+              </div>
+              <div
+                className="Button__ButtonComponent-sc-1b5ft91-0 gDPDbt"
+                onClick={[Function]}
+              >
+                <div
+                  className="Text__TextComponent-sc-1bxt3zu-0 khpdy"
+                >
+                  Go Back Home
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
