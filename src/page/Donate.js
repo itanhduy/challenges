@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { sumBy } from 'lodash'
+import { Responsive } from '../theme'
 import { Screen, Row, Text, Card, Divider, PaymentOptions, Button, Dialog, GoBackHome } from '../component'
 import { DonationAction } from '../redux/actions'
 import { API, Transform } from '../service'
@@ -16,6 +17,7 @@ class Donate extends PureComponent {
       paymentOptionSelected: null,
       paymentData: null,
       dialogOptions: CreateDialogOptions(false, DialogType.ERROR),
+      widthPercent: 50,
     }
   }
 
@@ -32,6 +34,42 @@ class Donate extends PureComponent {
       paymentData: paymentDataResponse.data,
       paymentOptions: PaymentOptionsData(campaignInformationResponse.data.currency),
     })
+    Responsive.listen([
+      {
+        minWidth: 0,
+        maxWidth: 425,
+        inCase: () => {
+          this.setState({
+            widthPercent: 100,
+          })
+        },
+      },
+      {
+        minWidth: 425,
+        maxWidth: 1024,
+        inCase: () => {
+          this.setState({
+            widthPercent: 50,
+          })
+        },
+      },
+      {
+        minWidth: 1024,
+        inCase: () => {
+          this.setState({
+            widthPercent: 50,
+          })
+        },
+      },
+      {
+        minWidth: 1440,
+        inCase: () => {
+          this.setState({
+            widthPercent: 30,
+          })
+        },
+      },
+    ]).start()
   }
 
   /**
@@ -161,14 +199,14 @@ class Donate extends PureComponent {
   }
 
   renderView = () => {
-    const { campaignInformation, dialogOptions } = this.state
+    const { campaignInformation, dialogOptions, widthPercent } = this.state
     const { show, title, type, description } = dialogOptions
     return (
-      <Screen styleName="v-center xl-gutter">
+      <Screen styleName="v-center">
         <Row styleName="xl-gutter-top">
           <Text styleName="title bold fadeIn">Donation for {campaignInformation.name}</Text>
         </Row>
-        <Row styleName="xl-gutter-top width-50">
+        <Row styleName={`xl-gutter-top width-${widthPercent}`}>
           <Card
             data={campaignInformation}
             columns={1}
