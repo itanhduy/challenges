@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render Backdrop component 1`] = `
+<div
+  className="Backdrop__BackdropComponent-sc-1eh1fa8-0 bOQvdL"
+/>
+`;

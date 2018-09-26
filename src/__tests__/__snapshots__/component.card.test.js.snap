@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render Card component 1`] = `
+<div
+  className="Card__CardWrapper-sc-9nsasl-0 boSWwI"
+  data={
+    Object {
+      "currency": "THB",
+      "id": 1,
+      "image": "baan-kru-noi.jpg",
+      "name": "Baan Kru Noi",
+      "totalAmount": 0,
+    }
+  }
+>
+  <div
+    className="Card__CardComponent-sc-9nsasl-1 clGIEO"
+    data={
+      Object {
+        "currency": "THB",
+        "id": 1,
+        "image": "baan-kru-noi.jpg",
+        "name": "Baan Kru Noi",
+        "totalAmount": 0,
+      }
+    }
+  >
+    <div
+      className="Image__ImageComponent-sc-1qzvlhi-0 gjDGbY"
+      height={200}
+    />
+    <div
+      className="Card__CardContent-sc-9nsasl-2 fjlMIc"
+      data={
+        Object {
+          "currency": "THB",
+          "id": 1,
+          "image": "baan-kru-noi.jpg",
+          "name": "Baan Kru Noi",
+          "totalAmount": 0,
+        }
+      }
+    >
+      <div
+        className="Row__RowComponent-sc-6b1omn-0 dPagVA"
+      >
+        <div
+          className="Text__TextComponent-sc-1bxt3zu-0 bcXjgf"
+        >
+          Baan Kru Noi
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

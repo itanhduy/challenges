@@ -11,6 +11,7 @@ import Dialog from './Dialog'
 import Nothing from './Nothing'
 import GoBackHome from './GoBackHome'
 import ProviderProvide from './ProviderProvide'
+import Backdrop from './Backdrop'
 
 export {
   Card,
@@ -26,4 +27,5 @@ export {
   Nothing,
   GoBackHome,
   ProviderProvide,
+  Backdrop,
 }
